@@ -1,0 +1,17 @@
+{
+  "name": "The Cosmo Packaging",
+  "short_name": "TCP",
+  "description": "Custom product packaging, cartons, mailer boxes, rigid boxes, pouches, inserts, samples, dielines, and quote support.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f3ee",
+  "theme_color": "#263820",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

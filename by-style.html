@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packaging by Style | The Cosmo Packaging</title>
+    <meta name="description" content="Browse custom packaging by structure for beauty, skincare, and cosmetics brands, including tuck end boxes, mailer boxes, rigid gift boxes, and PR packaging.">
+    <link rel="stylesheet" href="css/luxury-style.css">
+    <style>
+        .style-overview-hero {
+            padding: 10rem 5% 5rem;
+            background:
+                linear-gradient(90deg, rgba(250, 250, 249, 0.97), rgba(250, 250, 249, 0.74)),
+                var(--img-mailer-rigid) center / cover;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .style-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .style-overview-card {
+            min-height: 390px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fffaf5;
+            border: 1px solid rgba(64, 73, 58, 0.12);
+            box-shadow: 0 18px 44px rgba(36, 49, 31, 0.08);
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .style-overview-card:hover,
+        .style-overview-card:focus-visible {
+            transform: translateY(-5px);
+            border-color: rgba(79, 95, 69, 0.28);
+            box-shadow: 0 24px 58px rgba(36, 49, 31, 0.14);
+        }
+
+        .style-overview-card--wide {
+            grid-column: span 2;
+        }
+
+        .style-overview-media {
+            min-height: 185px;
+            background:
+                linear-gradient(180deg, rgba(29, 29, 31, 0.02), rgba(29, 29, 31, 0.22)),
+                var(--style-img, var(--img-hero)) center / cover no-repeat;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .style-overview-body {
+            padding: 1.25rem 1.3rem 1.35rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .style-overview-body h3 {
+            font-size: 1.55rem;
+            margin: 0.4rem 0 0.65rem;
+        }
+
+        .style-overview-body p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .style-chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: auto;
+        }
+
+        .style-chip-row span {
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            color: #33402d;
+            background: #eee6dc;
+            border: 1px solid rgba(79, 95, 69, 0.14);
+            border-radius: 999px;
+            padding: 0.35rem 0.55rem;
+        }
+
+        @media (max-width: 1080px) {
+            .style-overview-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .style-overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .style-overview-card--wide {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body data-page="by-style">
+    <header>
+        <a href="index.html" class="brand-logo-container">
+            <div class="logo-box">TCP</div>
+            <span class="brand-name">The Cosmo Packaging</span>
+        </a>
+        <nav></nav>
+    </header>
+
+    <section class="style-overview-hero">
+        <div class="container-wide">
+            <span class="section-tag">By Style</span>
+            <h1 style="font-size: clamp(3rem, 6vw, 5.4rem); line-height: 0.98; max-width: 900px; margin: 0.8rem 0 1.2rem;">
+                Choose packaging by structure.
+            </h1>
+            <p style="max-width: 720px; font-size: 1.05rem;">
+                Browse every The Cosmo Packaging style from folding cartons and mailers to rigid gift boxes, magnetic boxes, foam inserts, custom inlays, and PR packaging.
+            </p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+                <a href="quote-request.html" class="btn-luxury">Get Quote</a>
+                <a href="by-product.html" class="btn-luxury-outline">Browse By Product</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background:#fffaf5;">
+        <div class="container-wide">
+            <div class="section-header">
+                <span class="section-tag">All Styles</span>
+                <h2>Every packaging style in one place.</h2>
+                <p>Select a style to review its recommended use cases, production notes, finishes, and quote path.</p>
+            </div>
+
+            <div class="style-overview-grid">
+                <a class="style-overview-card style-overview-card--wide" href="tuck-end-boxes.html" style="--style-img: var(--img-tuck);">
+                    <div class="style-overview-media" role="img" aria-label="Tuck End Boxes"></div>
+                    <div class="style-overview-body"><span class="section-tag">Core style</span><h3>Tuck End Boxes</h3><p>Retail cartons for skincare, cosmetics, fragrance, serums, oils, and shelf-ready products.</p><div class="style-chip-row"><span>STE</span><span>RTE</span><span>Auto-lock</span><span>Snap-lock</span></div></div>
+                </a>
+                <a class="style-overview-card" href="mailer-boxes.html" style="--style-img: var(--img-mailer);">
+                    <div class="style-overview-media" role="img" aria-label="Mailer Boxes"></div>
+                    <div class="style-overview-body"><span class="section-tag">Core style</span><h3>Mailer Boxes</h3><p>Ecommerce-ready corrugated mailers for bundles, samples, PR kits, and DTC orders.</p><div class="style-chip-row"><span>RETT</span><span>Dust flaps</span><span>Kraft</span></div></div>
+                </a>
+                <a class="style-overview-card" href="mylar-bags.html" style="--style-img: var(--img-mylar);">
+                    <div class="style-overview-media" role="img" aria-label="Mylar Bags"></div>
+                    <div class="style-overview-body"><span class="section-tag">Core style</span><h3>Mylar Bags</h3><p>Barrier pouches for beauty samples, facial powders, skincare refills, and self-care products.</p><div class="style-chip-row"><span>Stand-up</span><span>Flat</span><span>Gusseted</span></div></div>
+                </a>
+                <a class="style-overview-card" href="corrugated-boxes.html" style="--style-img: var(--img-mailer);">
+                    <div class="style-overview-media" role="img" aria-label="Corrugated Boxes"></div>
+                    <div class="style-overview-body"><span class="section-tag">Shipping</span><h3>Corrugated Boxes</h3><p>Durable transit and retail-ready boxes for subscriptions, bundles, and replenishment.</p><div class="style-chip-row"><span>E-flute</span><span>B-flute</span><span>Custom size</span></div></div>
+                </a>
+                <a class="style-overview-card" href="gift-box-packaging.html" style="--style-img: var(--img-mailer-rigid);">
+                    <div class="style-overview-media" role="img" aria-label="Gift Box Packaging"></div>
+                    <div class="style-overview-body"><span class="section-tag">Premium rigid</span><h3>Gift Box Packaging</h3><p>Presentation-led rigid boxes for seasonal gifting, luxury sets, and retail launches.</p><div class="style-chip-row"><span>Rigid</span><span>Foil</span><span>Soft-touch</span></div></div>
+                </a>
+                <a class="style-overview-card" href="cosmetics-packaging.html" style="--style-img: var(--img-hero);">
+                    <div class="style-overview-media" role="img" aria-label="Cosmetics Packaging"></div>
+                    <div class="style-overview-body"><span class="section-tag">Beauty</span><h3>Cosmetics Packaging</h3><p>Beauty packaging direction across cartons, mailers, pouches, samples, and inserts.</p><div class="style-chip-row"><span>Skincare</span><span>Makeup</span><span>Fragrance</span></div></div>
+                </a>
+                <a class="style-overview-card" href="skincare-packaging.html" style="--style-img: var(--img-hero);">
+                    <div class="style-overview-media" role="img" aria-label="Skincare Packaging"></div>
+                    <div class="style-overview-body"><span class="section-tag">By Product</span><h3>Skincare Packaging</h3><p>Cartons, inserts, mailers, and sample-ready structures for skincare products and routine sets.</p><div class="style-chip-row"><span>Serums</span><span>Jars</span><span>Sets</span></div></div>
+                </a>
+                <a class="style-overview-card" href="custom-cosmetic-boxes.html" style="--style-img: var(--img-tuck);">
+                    <div class="style-overview-media" role="img" aria-label="Custom Cosmetic Boxes"></div>
+                    <div class="style-overview-body"><span class="section-tag">By Product</span><h3>Custom Cosmetic Boxes</h3><p>Custom box structures for makeup, skincare, fragrance, retail, and ecommerce product launches.</p><div class="style-chip-row"><span>Retail</span><span>Custom dieline</span><span>Finishes</span></div></div>
+                </a>
+                <a class="style-overview-card" href="pr-packaging.html" style="--style-img: var(--img-sample);">
+                    <div class="style-overview-media" role="img" aria-label="PR Packaging"></div>
+                    <div class="style-overview-body"><span class="section-tag">Launch kits</span><h3>PR Packaging</h3><p>Press drops, influencer boxes, reveal kits, and campaign packaging for launches.</p><div class="style-chip-row"><span>Mailers</span><span>Inserts</span><span>Cards</span></div></div>
+                </a>
+                <a class="style-overview-card" href="premium-shipping-boxes.html" style="--style-img: var(--img-mailer);">
+                    <div class="style-overview-media" role="img" aria-label="Premium Shipping Boxes"></div>
+                    <div class="style-overview-body"><span class="section-tag">Shipping</span><h3>Premium Shipping Boxes</h3><p>Higher-end shipping boxes for branded delivery, DTC bundles, and premium ecommerce.</p><div class="style-chip-row"><span>Inside print</span><span>Kraft</span><span>White board</span></div></div>
+                </a>
+                <a class="style-overview-card" href="mailer-boxes-with-foam-inserts.html" style="--style-img: var(--img-mailer);">
+                    <div class="style-overview-media" role="img" aria-label="Mailer Boxes with Foam Inserts"></div>
+                    <div class="style-overview-body"><span class="section-tag">Insert systems</span><h3>Mailer Boxes with Foam Inserts</h3><p>Protective mailers with die-cut foam cavities for fragile items and PR sets.</p><div class="style-chip-row"><span>Foam</span><span>Mailer</span><span>Protection</span></div></div>
+                </a>
+                <a class="style-overview-card" href="rigid-boxes-with-foam-inserts.html" style="--style-img: var(--img-mailer-rigid);">
+                    <div class="style-overview-media" role="img" aria-label="Rigid Boxes with Foam Inserts"></div>
+                    <div class="style-overview-body"><span class="section-tag">Insert systems</span><h3>Rigid Boxes with Foam Inserts</h3><p>Rigid presentation boxes with fitted foam for premium products and delicate sets.</p><div class="style-chip-row"><span>Rigid</span><span>Foam</span><span>Luxury</span></div></div>
+                </a>
+                <a class="style-overview-card" href="rigid-boxes-with-custom-inlays.html" style="--style-img: var(--img-mailer-rigid);">
+                    <div class="style-overview-media" role="img" aria-label="Rigid Boxes with Custom Inlays"></div>
+                    <div class="style-overview-body"><span class="section-tag">Insert systems</span><h3>Rigid Boxes with Custom Inlays</h3><p>Multi-product rigid sets with custom inlay tray layouts and premium spacing.</p><div class="style-chip-row"><span>Inlays</span><span>Sets</span><span>Retail</span></div></div>
+                </a>
+                <a class="style-overview-card" href="rigid-boxes-with-custom-inserts.html" style="--style-img: var(--img-mailer-rigid);">
+                    <div class="style-overview-media" role="img" aria-label="Rigid Boxes with Custom Inserts"></div>
+                    <div class="style-overview-body"><span class="section-tag">Insert systems</span><h3>Rigid Boxes with Custom Inserts</h3><p>Custom inserts for beauty kits, skincare gift sets, retail bundles, and launch boxes.</p><div class="style-chip-row"><span>Paperboard</span><span>Foam</span><span>Custom fit</span></div></div>
+                </a>
+                <a class="style-overview-card" href="magnetic-rigid-boxes-with-foam-inserts.html" style="--style-img: var(--img-mailer-rigid);">
+                    <div class="style-overview-media" role="img" aria-label="Magnetic Rigid Boxes with Foam Inserts"></div>
+                    <div class="style-overview-body"><span class="section-tag">Magnetic rigid</span><h3>Magnetic Rigid Boxes with Foam Inserts</h3><p>Magnetic closure rigid boxes with foam protection for luxury kits and devices.</p><div class="style-chip-row"><span>Magnetic</span><span>Foam</span><span>Premium</span></div></div>
+                </a>
+                <a class="style-overview-card" href="magnetic-rigid-boxes-with-custom-inlays.html" style="--style-img: var(--img-mailer-rigid);">
+                    <div class="style-overview-media" role="img" aria-label="Magnetic Rigid Boxes with Custom Inlays"></div>
+                    <div class="style-overview-body"><span class="section-tag">Magnetic rigid</span><h3>Magnetic Rigid Boxes with Custom Inlays</h3><p>Magnetic presentation boxes with custom inlays for collections and press kits.</p><div class="style-chip-row"><span>Magnetic</span><span>Inlays</span><span>Foil</span></div></div>
+                </a>
+                <a class="style-overview-card style-overview-card--wide" href="magnetic-rigid-boxes-with-custom-inserts.html" style="--style-img: var(--img-mailer-rigid);">
+                    <div class="style-overview-media" role="img" aria-label="Magnetic Rigid Boxes with Custom Inserts"></div>
+                    <div class="style-overview-body"><span class="section-tag">Magnetic rigid</span><h3>Magnetic Rigid Boxes with Custom Inserts</h3><p>Tailored magnetic rigid boxes with inserts for VIP kits, launch collections, and premium ecommerce.</p><div class="style-chip-row"><span>Magnetic</span><span>Custom inserts</span><span>VIP kits</span></div></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-wide">
+            <div class="footer-bottom" style="border-top:0; padding-top:0;">
+                <p>&copy; 2026 The Cosmo Packaging. All rights reserved.</p>
+                <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+                    <a href="quote-request.html" style="color:var(--text-muted); text-decoration:none;">Get Quote</a>
+                    <a href="by-product.html" style="color:var(--text-muted); text-decoration:none;">By Product</a>
+                    <a href="contact.html" style="color:var(--text-muted); text-decoration:none;">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site-shell.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

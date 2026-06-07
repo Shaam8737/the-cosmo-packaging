@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packaging by Product | The Cosmo Packaging</title>
+    <meta name="description" content="Find packaging structures by product category for skincare, cosmetics, makeup, fragrance, haircare, PR kits, and beauty ecommerce packaging needs.">
+    <link rel="stylesheet" href="css/luxury-style.css">
+    <style>
+        .product-use-hero {
+            padding: 10rem 5% 5rem;
+            background:
+                linear-gradient(90deg, rgba(250, 250, 249, 0.96), rgba(250, 250, 249, 0.72)),
+                var(--img-hero) center / cover;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .product-use-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .product-use-card {
+            min-height: 420px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            background: #fffaf5;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .product-use-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-premium);
+            border-color: rgba(79, 95, 69, 0.32);
+        }
+
+        .product-use-media {
+            min-height: 210px;
+            background: var(--use-img, var(--img-tuck)) center / cover no-repeat;
+            position: relative;
+        }
+
+        .product-use-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(29, 29, 31, 0.02), rgba(29, 29, 31, 0.2));
+        }
+
+        .product-use-body {
+            padding: 1.35rem;
+        }
+
+        .product-use-body h3 {
+            font-size: 1.7rem;
+            margin: 0.35rem 0 0.7rem;
+        }
+
+        .product-use-body p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1.15rem;
+        }
+
+        .product-use-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .product-use-list span {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            color: #33402d;
+            background: #eee6dc;
+            border: 1px solid rgba(79, 95, 69, 0.16);
+            border-radius: 999px;
+            padding: 0.35rem 0.6rem;
+        }
+
+        .use-skincare { --use-img: var(--img-hero); }
+        .use-makeup { --use-img: var(--img-mailer-rigid); }
+        .use-fragrance { --use-img: var(--img-tuck); }
+        .use-haircare { --use-img: var(--img-mylar-flat); }
+
+
+        .use-ecommerce { --use-img: var(--img-mailer); }
+
+        @media (max-width: 980px) {
+            .product-use-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .product-use-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-page="by-product">
+    <header>
+        <a href="index.html" class="brand-logo-container">
+            <div class="logo-box">TCP</div>
+            <span class="brand-name">The Cosmo Packaging</span>
+        </a>
+        <nav></nav>
+    </header>
+
+    <section class="product-use-hero">
+        <div class="container-wide">
+            <span class="section-tag">By Product</span>
+            <h1 style="font-size: clamp(3rem, 6vw, 5.4rem); line-height: 0.98; max-width: 860px; margin: 0.8rem 0 1.2rem;">
+                Packaging matched to what you sell.
+            </h1>
+            <p style="max-width: 680px; font-size: 1.05rem;">
+                Choose by product category when you know what you are launching, but not yet which box, pouch, insert, or sample route fits best.
+            </p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+                <a href="quote-request.html" class="btn-luxury">Get Quote</a>
+                <a href="sample-kit-checkout.html" class="btn-luxury-outline">View Samples</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background:#fffaf5;">
+        <div class="container-wide">
+            <div class="section-header">
+                <span class="section-tag">Product Categories</span>
+                <h2>Select your launch type.</h2>
+                <p>The Cosmo Packaging will recommend the suitable structure, material, finish, sample route, and production setup after your product details are confirmed.</p>
+            </div>
+
+            <div class="product-use-grid">
+                <article class="product-use-card use-skincare">
+                    <div class="product-use-media" role="img" aria-label="Skincare packaging"></div>
+                    <div class="product-use-body">
+                        <span class="section-tag">Skincare</span>
+                        <h3>Creams, serums, cleansers</h3>
+                        <p>Folding cartons, rigid mailers, inserts, and sample kits for skincare bottles, jars, tubes, and routine sets.</p>
+                        <div class="product-use-list"><span>Tuck boxes</span><span>Inserts</span><span>Mailer sets</span></div>
+                        <a href="quote-request.html?product=skincare-packaging" class="btn-luxury">Get Quote</a>
+                    </div>
+                </article>
+
+                <article class="product-use-card use-makeup">
+                    <div class="product-use-media" role="img" aria-label="Makeup packaging"></div>
+                    <div class="product-use-body">
+                        <span class="section-tag">Makeup</span>
+                        <h3>Palettes, lip, compact items</h3>
+                        <p>Retail-ready structures for small beauty products that need clean shelf presentation and protected transit.</p>
+                        <div class="product-use-list"><span>Rigid board</span><span>Foil finish</span><span>Retail cartons</span></div>
+                        <a href="quote-request.html?product=custom-cosmetic-boxes" class="btn-luxury">Get Quote</a>
+                    </div>
+                </article>
+
+                <article class="product-use-card use-fragrance">
+                    <div class="product-use-media" role="img" aria-label="Fragrance packaging"></div>
+                    <div class="product-use-body">
+                        <span class="section-tag">Fragrance</span>
+                        <h3>Bottles, oils, discovery sets</h3>
+                        <p>Premium cartons, inserts, and gift-style structures for fragrance products that need strong presentation.</p>
+                        <div class="product-use-list"><span>Insert fit</span><span>Soft-touch</span><span>Gift-ready</span></div>
+                        <a href="quote-request.html?product=gift-box-packaging" class="btn-luxury">Get Quote</a>
+                    </div>
+                </article>
+
+                <article class="product-use-card use-haircare">
+                    <div class="product-use-media" role="img" aria-label="Haircare packaging"></div>
+                    <div class="product-use-body">
+                        <span class="section-tag">Haircare</span>
+                        <h3>Bottles, sachets, treatment packs</h3>
+                        <p>Cartons, pouches, and multi-unit kits for oils, masks, treatments, and travel-size haircare launches.</p>
+                        <div class="product-use-list"><span>Cartons</span><span>Pouches</span><span>Sample packs</span></div>
+                        <a href="quote-request.html?product=mylar-bags" class="btn-luxury">Get Quote</a>
+                    </div>
+                </article>
+
+
+
+
+                <article class="product-use-card use-ecommerce">
+                    <div class="product-use-media" role="img" aria-label="Ecommerce packaging"></div>
+                    <div class="product-use-body">
+                        <span class="section-tag">Ecommerce</span>
+                        <h3>Launch kits, PR boxes, bundles</h3>
+                        <p>Mailer boxes, inserts, sleeves, and sample-ready kits built for direct-to-customer unboxing.</p>
+                        <div class="product-use-list"><span>Mailers</span><span>Inserts</span><span>PR kits</span></div>
+                        <a href="quote-request.html?product=mailer-boxes" class="btn-luxury">Get Quote</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-wide">
+            <div class="footer-bottom" style="border-top:0; padding-top:0;">
+                <p>&copy; 2026 The Cosmo Packaging. All rights reserved.</p>
+                <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+                    <a href="quote-request.html" style="color:var(--text-muted); text-decoration:none;">Get Quote</a>
+                    <a href="services.html" style="color:var(--text-muted); text-decoration:none;">Services</a>
+                    <a href="contact.html" style="color:var(--text-muted); text-decoration:none;">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site-shell.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

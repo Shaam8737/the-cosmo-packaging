@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Packaging Sample Kit | The Cosmo Packaging</title>
+    <meta name="description" content="Request The Cosmo Packaging sample kit for material swatches, finishing samples, and blank structural references before production approval.">
+    <link rel="stylesheet" href="css/luxury-style.css">
+    <!-- Stripe.js SDK -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .checkout-grid { grid-template-columns: 1fr; }
+        }
+        .kit-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.85rem;
+        }
+        .kit-item::before {
+            content: '\2713';
+            color: var(--accent-green);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .sample-tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 2.5rem;
+        }
+        .sample-tier {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 1.25rem;
+            transition: var(--transition-smooth);
+        }
+        .sample-tier:hover {
+            border-color: rgba(96, 112, 86, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(29, 29, 31, 0.08);
+        }
+        .sample-tier h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+        .sample-tier p {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 0.85rem;
+        }
+        .sample-tier span {
+            font-family: var(--font-ui);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+        }
+        @media (max-width: 900px) {
+            .sample-tier-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body data-page="sample-kit">
+
+    <header>
+        <a href="index.html" class="brand-logo-container">
+            <div class="logo-box">TCP</div>
+            <span class="brand-name">The Cosmo Packaging</span>
+        </a>
+        <nav>
+            <a href="index.html">Overview</a>
+            <a href="tuck-end-boxes.html">Tuck End Boxes</a>
+            <a href="mailer-boxes.html">Mailer Boxes</a>
+            <a href="mylar-bags.html">Mylar Bags</a>
+            <a href="artwork-guide.html">Artwork Guide</a>
+            <a href="sample-kit-checkout.html" class="active">Sample Kit</a>
+            <a href="quote-request.html" class="btn-luxury" style="padding: 0.5rem 1.25rem; font-size: 0.75rem;">Get Quote</a>
+        </nav>
+    </header>
+
+    <section class="section-padding" style="margin-top: 3.5rem;">
+        <div class="container-wide">
+            <div class="sample-kit-checkout-hero">
+                <h3 class="serif-italics" style="font-size: 1.8rem;">Packaging Samples</h3>
+            </div>
+            <div class="section-header">
+                <span class="technical-label">Physical Sample Program</span>
+                <span class="sample-kit-badge" style="background: rgba(197, 160, 89, 0.1); color: #b98a66; border-color: rgba(197, 160, 89, 0.2);">$35 USD</span>
+                <h1>The Cosmo Packaging Sample Kit</h1>
+                <p>Evaluate board stock, print finishes, and structural formats before your first production run - physical material kit delivered to your brand.</p>
+            </div>
+
+            <div class="sample-tier-grid">
+                <div class="sample-tier">
+                    <span>$35 USD</span>
+                    <h3>Cosmo Sample Kit</h3>
+                    <p>Material swatches, finish chips, and blank packaging examples for early evaluation.</p>
+                </div>
+                <div class="sample-tier">
+                    <span>Quoted</span>
+                    <h3>Structural Sample</h3>
+                    <p>Custom-size blank sample to confirm fit, closure, insert clearance, and shelf feel.</p>
+                </div>
+                <div class="sample-tier">
+                    <span>Quoted</span>
+                    <h3>Printed Sample</h3>
+                    <p>Color, artwork placement, finish, and print effect check before production approval.</p>
+                </div>
+                <div class="sample-tier">
+                    <span>Quoted</span>
+                    <h3>Pre-Production Sample</h3>
+                    <p>Final factory sample made with your selected material, structure, artwork, and finish.</p>
+                </div>
+                <div class="sample-tier">
+                    <span>Optional</span>
+                    <h3>Print Proof</h3>
+                    <p>Flat print proof for artwork alignment, color direction, barcode checks, and finish notes.</p>
+                </div>
+                <div class="sample-tier">
+                    <span>Optional</span>
+                    <h3>Press Proof</h3>
+                    <p>On-press approval option for launches where exact color and finish control matters.</p>
+                </div>
+            </div>
+
+            <div class="checkout-grid">
+                <div class="luxury-card">
+                    <h3 class="serif-italics" style="font-size: 1.6rem; margin-bottom: 1rem;">What's Included</h3>
+                    <div class="kit-item">Material swatches - white cardboard, kraft, black card, corrugated liners</div>
+                    <div class="kit-item">Finishing swatches - matte vs gloss, soft-touch, foil, spot UV</div>
+                    <div class="kit-item">Blank tuck box and mailer structural samples</div>
+                    <div class="kit-item">Shipping option and timeline confirmed after sample request review</div>
+                    <p style="font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-green); margin-top: 0.5rem;">$35 USD - Paid Checkout</p>
+                </div>
+
+                <div class="luxury-card" id="orderCard">
+                    <h3 class="serif-italics" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Order Details</h3>
+                    <form id="sampleKitForm" novalidate onsubmit="handleSampleOrder(event)">
+                        <div id="kitFormAlert" style="display: none; color: var(--accent-red); font-size: 0.85rem; margin-bottom: 1rem; padding: 0.75rem; border: 1px dashed rgba(217,56,58,0.3); border-radius: 8px;"></div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="kitName">Full Name <span style="color: var(--accent-red);">*</span></label>
+                            <input class="quote-input" type="text" id="kitName" required autocomplete="name">
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="kitEmail">Email <span style="color: var(--accent-red);">*</span></label>
+                            <input class="quote-input" type="email" id="kitEmail" required autocomplete="email">
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="kitPhone">Phone / WhatsApp <span style="color: var(--accent-red);">*</span></label>
+                            <input class="quote-input" type="tel" id="kitPhone" required autocomplete="tel" placeholder="Country code + number">
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="kitQuantity">Quantity (kits) <span style="color: var(--accent-red);">*</span></label>
+                            <input class="quote-input" type="text" id="kitQuantity" inputmode="numeric" pattern="[0-9]*" value="1" required>
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="kitCompany">Brand / Company <span style="color: var(--text-muted); font-weight: 400;">(optional)</span></label>
+                            <input class="quote-input" type="text" id="kitCompany" autocomplete="organization">
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label">Shipping Address <span style="color: var(--text-muted); font-weight: 400;">(optional)</span></label>
+                            <input class="quote-input" type="text" id="kitAddress" placeholder="Street address" style="margin-bottom: 0.75rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                                <input class="quote-input" type="text" id="kitCity" placeholder="City">
+                                <input class="quote-input" type="text" id="kitCountry" placeholder="Country">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-luxury" style="width: 100%; margin-top: 1rem;" id="kitSubmitBtn">Proceed to Payment ($35)</button>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.5;">
+                            Physical sample kit will be prepared and shipped within 3-5 business days upon payment confirmation. Secured via Stripe.
+                        </p>
+                    </form>
+                    <div id="kitSuccess" style="display: none; text-align: center; padding: 2rem 0;">
+                        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(52, 199, 89, 0.08); border: 1px solid var(--accent-green); display: flex; align-items: center; justify-content: center; color: var(--accent-green); font-size: 1.5rem; margin: 0 auto 1rem;">&#10003;</div>
+                        <h3 class="serif-italics" style="margin-bottom: 0.5rem;">Order Confirmed</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Thank you for your order! We've received your payment and details. A confirmation email has been routed to <strong id="kitSuccessEmail"></strong>.</p>
+                        <a href="index.html" class="btn-luxury-outline" style="margin-top: 1.5rem; display: inline-block;">Return Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-wide">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="brand-logo-container" style="margin-bottom: 1.5rem;">
+                        <div class="logo-box">TCP</div>
+                        <span class="brand-name">The Cosmo Packaging</span>
+                    </a>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">Material swatches and structural samples for brands evaluating board stock and finishes.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Packaging Catalog</h4>
+                    <ul class="footer-links">
+                        <li><a href="tuck-end-boxes.html">Tuck End Boxes</a></li>
+                        <li><a href="mailer-boxes.html">Mailer Boxes</a></li>
+                        <li><a href="mylar-bags.html">Mylar Bags</a></li>
+                        <li><a href="artwork-guide.html">Artwork Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Production Systems</h4>
+                    <ul class="footer-links">
+                        <li><a href="artwork-guide.html#dielines">Vector Dielines</a></li>
+                        <li><a href="artwork-guide.html#sourcing-chart">Cosmo Sourcing Guide</a></li>
+                        <li><a href="index.html#features">24-Hour Quote Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Sourcing Offices</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                        CEO Sourcing Operations:<br>
+                        Lahore, Pakistan<br>
+                        <a href="mailto:samples@thecosmopackaging.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500;">samples@thecosmopackaging.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Cosmo Packaging. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="contact.html" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+                    <a href="terms.html" style="color: var(--text-muted); text-decoration: none;">Terms of Sale</a>
+                    <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/lead-schema.js"></script>
+    <script src="js/webhook.js"></script>
+    <script src="js/site-shell.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Check for redirect back from Stripe Checkout
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('payment') === 'success') {
+                const email = params.get('email') || '';
+                document.getElementById('sampleKitForm').style.display = 'none';
+                document.getElementById('kitSuccessEmail').textContent = decodeURIComponent(email);
+                document.getElementById('kitSuccess').style.display = 'block';
+            } else if (params.get('payment') === 'cancelled') {
+                const alertEl = document.getElementById('kitFormAlert');
+                alertEl.textContent = 'Payment was cancelled. You can try submitting the form again if you wish.';
+                alertEl.style.display = 'block';
+            }
+        });
+
+        async function handleSampleOrder(event) {
+            event.preventDefault();
+            const alertEl = document.getElementById('kitFormAlert');
+            const name = document.getElementById('kitName').value.trim();
+            const email = document.getElementById('kitEmail').value.trim();
+            const phone = document.getElementById('kitPhone').value.trim();
+            const rawQuantity = document.getElementById('kitQuantity').value.trim();
+            const quantity = parseInt(rawQuantity.replace(/[^\d]/g, ''), 10);
+            const submitBtn = document.getElementById('kitSubmitBtn');
+
+            if (!name || !email || !phone || !quantity || quantity < 1) {
+                alertEl.textContent = 'Please complete all required fields: name, email, phone, and quantity.';
+                alertEl.style.display = 'block';
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alertEl.textContent = 'Please enter a valid email address.';
+                alertEl.style.display = 'block';
+                return;
+            }
+            alertEl.style.display = 'none';
+
+            // Get Stripe configs
+            const stripeConfig = window.CosmoConfig && window.CosmoConfig.stripe ? window.CosmoConfig.stripe : { enabled: false };
+            const sampleAmount = (stripeConfig.amount || 35) * quantity;
+
+            const order = window.CosmoLeadSchema.normalizeLead({
+                source: 'sample-kit-checkout',
+                page_url: window.location.href,
+                lead_type: 'sample_kit',
+                status: 'Payment Pending',
+                full_name: name,
+                email,
+                phone,
+                quantity,
+                company: document.getElementById('kitCompany').value.trim(),
+                city: document.getElementById('kitCity').value.trim(),
+                country: document.getElementById('kitCountry').value.trim(),
+                product: `Cosmo Sample Kit ($${stripeConfig.amount || 35})`,
+                quote_value: sampleAmount,
+                notes: `Notify: samples@thecosmopackaging.com | Raw quantity: ${rawQuantity} | Address: ${document.getElementById('kitAddress').value.trim()} | Status: Stripe Checkout Pending`
+            });
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Processing...';
+            }
+
+            try {
+                // Submit to Apps Script Webhook first so we capture the lead!
+                if (window.CosmoWebhook) {
+                    await window.CosmoWebhook.dispatchLead('sampleKit', order);
+                } else {
+                    const key = 'cosmo_sample_kit_orders';
+                    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+                    existing.push(order);
+                    localStorage.setItem(key, JSON.stringify(existing));
+                }
+
+                // Check if Stripe is configured
+                const hasStripeKey = stripeConfig.publishableKey && 
+                                     stripeConfig.publishableKey !== 'STRIPE_PUBLISHABLE_KEY_HERE' && 
+                                     stripeConfig.publishableKey.trim() !== '';
+
+                if (stripeConfig.enabled && hasStripeKey && typeof Stripe !== 'undefined') {
+                    // Redirect to Stripe Checkout
+                    const stripe = Stripe(stripeConfig.publishableKey);
+                    const { error } = await stripe.redirectToCheckout({
+                        lineItems: [{
+                            price: stripeConfig.priceId,
+                            quantity: quantity
+                        }],
+                        mode: 'payment',
+                        successUrl: window.location.origin + window.location.pathname + '?payment=success&email=' + encodeURIComponent(email),
+                        cancelUrl: window.location.origin + window.location.pathname + '?payment=cancelled'
+                    });
+                    
+                    if (error) {
+                        throw error;
+                    }
+                } else {
+                    // Fallback Demo Mode when Stripe is not wired yet
+                    console.log('Demo Mode: Stripe is not wired. Simulating success.');
+                    alertEl.innerHTML = `<strong>Demo Mode Alert:</strong> Stripe key is not wired yet. Simulating checkout for <strong>$${sampleAmount} USD</strong>.<br>Lead has been logged successfully to CRM. Redirecting to receipt...`;
+                    alertEl.style.display = 'block';
+                    alertEl.style.color = 'var(--accent-green)';
+                    alertEl.style.borderColor = 'rgba(52, 199, 89, 0.3)';
+                    alertEl.style.background = 'rgba(52, 199, 89, 0.05)';
+                    
+                    setTimeout(() => {
+                        document.getElementById('sampleKitForm').style.display = 'none';
+                        document.getElementById('kitSuccessEmail').textContent = order.email;
+                        document.getElementById('kitSuccess').style.display = 'block';
+                        alertEl.style.display = 'none';
+                    }, 3000);
+                }
+            } catch (error) {
+                alertEl.textContent = 'Error processing request: ' + (error.message || error) + '. Please try again.';
+                alertEl.style.display = 'block';
+                alertEl.style.color = 'var(--accent-red)';
+                alertEl.style.borderColor = 'rgba(217, 56, 58, 0.3)';
+                alertEl.style.background = 'rgba(217, 56, 58, 0.05)';
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Proceed to Payment ($35)';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

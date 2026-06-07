@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /lead-dashboard.html
+Disallow: /database-schema-visualizer.html
+Disallow: /*.md$
+
+Sitemap: https://thecosmopackaging.com/sitemap.xml

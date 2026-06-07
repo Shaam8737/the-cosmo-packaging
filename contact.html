@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact The Cosmo Packaging | Beauty & Cosmetics Packaging</title>
+    <meta name="description" content="Contact The Cosmo Packaging for custom beauty packaging, skincare boxes, cosmetics mailers, PR kit packaging, sample kits, and quote support.">
+    <link rel="stylesheet" href="css/luxury-style.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        .contact-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+        .contact-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem; }
+        .contact-meta { font-family: var(--font-ui); font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.35rem; }
+        .contact-form-alert { display:none; color: var(--accent-red); font-size: 0.85rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body data-page="contact">
+
+    <header id="main-header">
+        <a href="index.html" class="brand-logo-container">
+            <div class="logo-box">TCP</div>
+            <span class="brand-name">The Cosmo Packaging</span>
+        </a>
+        <nav>
+            <a href="index.html">Overview</a>
+            <a href="tuck-end-boxes.html">Tuck End Boxes</a>
+            <a href="mailer-boxes.html">Mailer Boxes</a>
+            <a href="mylar-bags.html">Mylar Bags</a>
+            <a href="artwork-guide.html">Artwork Guide</a>
+            <a href="sample-kit-checkout.html">Sample Kit</a>
+            <a href="quote-request.html" class="btn-luxury" style="padding: 0.5rem 1.25rem; font-size: 0.75rem;">Get Quote</a>
+        </nav>
+    </header>
+
+    <section class="section-padding" style="margin-top: 4rem;">
+        <div class="container-wide" style="max-width: 900px;">
+            <span class="technical-label">Sourcing Operations</span>
+            <h1 style="font-size: 2.8rem; margin: 0.5rem 0 1rem;">Contact The Cosmo Packaging</h1>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; max-width: 640px;">
+                Factory-direct custom packaging for cosmetic, skincare, and beauty brands. Submit specifications through the quote form for the fastest response, or email us directly for artwork and sample kit questions.
+            </p>
+
+            <div class="contact-grid">
+                <div class="luxury-card contact-card">
+                    <div class="contact-meta">Primary channel</div>
+                    <h3 class="serif-italics">Quote &amp; Production</h3>
+                    <p>
+                        <a href="mailto:quotes@thecosmopackaging.com" style="color: var(--text-primary); font-weight: 500; text-decoration: none;">quotes@thecosmopackaging.com</a>
+                    </p>
+                    <p>Structured quote requests receive a supplier-informed quote range within <strong>24 calendar hours</strong> when specifications are clear.</p>
+                    <a href="quote-request.html" class="btn-luxury" style="display: inline-block; margin-top: 0.5rem;">Get Quote</a>
+                </div>
+
+                <div class="luxury-card contact-card">
+                    <div class="contact-meta">Physical reference</div>
+                    <h3 class="serif-italics">Free Sample Kit</h3>
+                    <p>Material swatches, finishing samples, and blank structural boxes for board evaluation before production - complimentary for qualified brands.</p>
+                    <a href="sample-kit-checkout.html" class="btn-luxury-outline" style="display: inline-block; margin-top: 0.5rem;">Order Free Sample Kit</a>
+                </div>
+
+                <div class="luxury-card contact-card">
+                    <div class="contact-meta">Pre-press &amp; dielines</div>
+                    <h3 class="serif-italics">Artwork Support</h3>
+                    <p>Vector dieline conventions, bleed rules, and the full 12-format The Cosmo Packaging sourcing guide.</p>
+                    <a href="artwork-guide.html#get-quote" class="btn-luxury-outline" style="display: inline-block; margin-top: 0.5rem;">Quick Guidance Form</a>
+                </div>
+
+                <div class="luxury-card contact-card">
+                    <div class="contact-meta">Office</div>
+                    <h3 class="serif-italics">CEO Sourcing</h3>
+                    <p>
+                        Lahore, Pakistan<br>
+                        Serving beauty &amp; wellness brands globally via factory partners in Asia.
+                    </p>
+                </div>
+
+                <div class="luxury-card contact-card" style="grid-column: 1 / -1;">
+                    <div class="contact-meta">General inquiry</div>
+                    <h3 class="serif-italics">Send a Message</h3>
+                    <form id="contactLeadForm" novalidate onsubmit="handleContactLead(event)">
+                        <div id="contactFormAlert" class="contact-form-alert"></div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="contactName">Full Name</label>
+                                <input class="quote-input" id="contactName" type="text" required>
+                            </div>
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="contactEmail">Email</label>
+                                <input class="quote-input" id="contactEmail" type="email" required>
+                            </div>
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="contactPhone">Phone / WhatsApp</label>
+                            <input class="quote-input" id="contactPhone" type="tel" placeholder="Country code + number">
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="contactMessage">Message</label>
+                            <textarea class="quote-input" id="contactMessage" rows="4" required placeholder="Tell us what you need help with"></textarea>
+                        </div>
+                        <button class="btn-luxury" type="submit">Send Message</button>
+                    </form>
+                    <div id="contactSuccess" style="display:none;">
+                        <p><strong>Message received.</strong> The Cosmo Packaging will reply within 24 calendar hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-wide">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="brand-logo-container" style="margin-bottom: 1.5rem;">
+                        <div class="logo-box">TCP</div>
+                        <span class="brand-name">The Cosmo Packaging</span>
+                    </a>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">Premium structural packaging sourced for product brands, retailers, and ecommerce sellers.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Packaging Catalog</h4>
+                    <ul class="footer-links">
+                        <li><a href="tuck-end-boxes.html">Tuck End Boxes</a></li>
+                        <li><a href="mailer-boxes.html">Mailer Boxes</a></li>
+                        <li><a href="mylar-bags.html">Mylar Bags</a></li>
+                        <li><a href="artwork-guide.html">Artwork Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Production Systems</h4>
+                    <ul class="footer-links">
+                        <li><a href="artwork-guide.html#dielines">Vector Dielines</a></li>
+                        <li><a href="artwork-guide.html#sourcing-chart">Cosmo Sourcing Guide</a></li>
+                        <li><a href="index.html#features">24-Hour Quote Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Sourcing Offices</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                        CEO Sourcing Operations:<br>
+                        Lahore, Pakistan<br>
+                        <a href="mailto:info@thecosmopackaging.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500;">info@thecosmopackaging.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Cosmo Packaging. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="contact.html" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+                    <a href="terms.html" style="color: var(--text-muted); text-decoration: none;">Terms of Sale</a>
+                    <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/lead-schema.js"></script>
+    <script src="js/webhook.js"></script>
+    <script src="js/site-shell.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        async function handleContactLead(event) {
+            event.preventDefault();
+            const alertEl = document.getElementById('contactFormAlert');
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+
+            if (!name || !email || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alertEl.textContent = 'Please enter your name, a valid email, and message.';
+                alertEl.style.display = 'block';
+                return;
+            }
+
+            alertEl.style.display = 'none';
+            const payload = window.CosmoLeadSchema.normalizeLead({
+                source: 'contact-page',
+                page_url: window.location.href,
+                lead_type: 'contact',
+                full_name: name,
+                email,
+                phone,
+                message,
+                notes: 'Notify: support@thecosmopackaging.com'
+            });
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+            }
+
+            try {
+                if (window.CosmoWebhook) {
+                    await window.CosmoWebhook.dispatchLead('contact', payload);
+                }
+
+                document.getElementById('contactLeadForm').style.display = 'none';
+                document.getElementById('contactSuccess').style.display = 'block';
+            } catch (error) {
+                alertEl.textContent = 'Message could not be submitted. Please try again or email us directly.';
+                alertEl.style.display = 'block';
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

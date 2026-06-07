@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty & Cosmetics Packaging Services | The Cosmo Packaging</title>
+    <meta name="description" content="Beauty packaging services for skincare and cosmetics brands: dieline setup, sample approval, artwork review, supplier-informed quotes, and production support.">
+    <link rel="stylesheet" href="css/luxury-style.css">
+    <style>
+        .service-hero {
+            padding: 10rem 5% 5rem;
+            background: #f7f3ee;
+        }
+        .service-grid,
+        .sample-grid,
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        .service-card {
+            background: #fffaf5;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow-subtle);
+        }
+        .service-card h3 {
+            font-size: 1.65rem;
+            margin-bottom: 0.75rem;
+        }
+        .service-card p,
+        .service-card li {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+        .service-card ul {
+            margin: 1rem 0 0 1.1rem;
+        }
+        .service-tag {
+            display: inline-block;
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-steel);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 999px;
+            padding: 0.4rem 0.7rem;
+            margin-bottom: 1rem;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fffaf5;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+        .comparison-table th,
+        .comparison-table td {
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .comparison-table th {
+            background: #263820;
+            color: #fffaf5;
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .service-quote-section {
+            background:
+                linear-gradient(135deg, rgba(38, 56, 32, 0.94), rgba(38, 56, 32, 0.82)),
+                var(--img-sample) center / cover;
+            color: #fffaf5;
+        }
+        .service-quote-panel {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 2rem;
+            align-items: start;
+            background: rgba(255, 250, 245, 0.08);
+            border: 1px solid rgba(255, 250, 245, 0.18);
+            border-radius: 10px;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            box-shadow: 0 24px 55px rgba(24, 35, 21, 0.22);
+        }
+        .service-quote-section h2,
+        .service-quote-section h3 {
+            color: #fffaf5;
+        }
+        .service-quote-section p {
+            color: rgba(255, 250, 245, 0.76);
+        }
+        .service-quote-form {
+            background: #fffaf5;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 250, 245, 0.22);
+        }
+        .service-quote-form textarea.quote-input {
+            min-height: 110px;
+            resize: vertical;
+        }
+        .service-form-alert {
+            display: none;
+            margin-bottom: 1rem;
+            padding: 0.75rem 0.9rem;
+            border-radius: 8px;
+            border: 1px dashed rgba(217, 56, 58, 0.35);
+            color: var(--accent-red);
+            font-size: 0.84rem;
+            line-height: 1.5;
+        }
+        .service-form-alert.success {
+            border-color: rgba(52, 199, 89, 0.35);
+            color: var(--accent-green);
+        }
+        @media (max-width: 900px) {
+            .service-grid,
+            .sample-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-quote-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-page="services">
+    <header>
+        <a href="index.html" class="brand-logo-container">
+            <div class="logo-box">TCP</div>
+            <span class="brand-name">The Cosmo Packaging</span>
+        </a>
+        <nav></nav>
+    </header>
+
+    <section class="service-hero">
+        <div class="container-wide">
+            <span class="section-tag">Packaging Services</span>
+            <h1 style="font-size: clamp(3rem, 6vw, 5.4rem); line-height: 0.98; max-width: 840px; margin: 0.8rem 0 1.2rem;">
+                Launch beauty packaging without production guesswork.
+            </h1>
+            <p style="max-width: 680px; font-size: 1.05rem;">
+                The Cosmo Packaging supports beauty and cosmetics brands from structure selection to dieline setup, sample approval, print checks, production, quality control, and dispatch.
+            </p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+                <a href="quote-request.html" class="btn-luxury">Get Quote</a>
+                <a href="sample-kit-checkout.html" class="btn-luxury-outline">View Samples</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background:#fffaf5;">
+        <div class="container-wide">
+            <div class="section-header">
+                <span class="section-tag">Service Packages</span>
+                <h2>Choose the support level your launch needs.</h2>
+            </div>
+            <div class="service-grid">
+                <article class="service-card">
+                    <span class="service-tag">Dieline Setup</span>
+                    <h3>Production-ready structure files</h3>
+                    <p>For brands that know the packaging type but need a clean dieline after dimensions and material are confirmed.</p>
+                    <ul>
+                        <li>Custom size dieline setup</li>
+                        <li>Bleed, cut, crease, and safe-zone layers</li>
+                        <li>Artwork placement guidance</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <span class="service-tag">Structural Design</span>
+                    <h3>Fit-tested packaging direction</h3>
+                    <p>For launches that need help choosing structure, insert logic, product fit, or safer transit protection.</p>
+                    <ul>
+                        <li>Structure recommendation</li>
+                        <li>Sample-first size validation</li>
+                        <li>Revision support before production</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <span class="service-tag">Production Support</span>
+                    <h3>From proof to dispatch</h3>
+                    <p>For brands that want one place to manage quote, proofing, production check, and logistics updates.</p>
+                    <ul>
+                        <li>Pre-press artwork review</li>
+                        <li>Sample and production coordination</li>
+                        <li>Pre-shipment quality check</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background:#f7f3ee;">
+        <div class="container-wide">
+            <div class="section-header center">
+                <span class="section-tag">Sample Options</span>
+                <h2>Approve before full production.</h2>
+                <p>Use samples to confirm structure, print direction, color, finish, and final production quality.</p>
+            </div>
+            <div class="sample-grid">
+                <article class="service-card">
+                    <span class="service-tag">Free Kit</span>
+                    <h3>Cosmo Sample Kit</h3>
+                    <p>Material swatches, finish references, and blank structures for qualified brands.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-tag">Custom</span>
+                    <h3>Structural Sample</h3>
+                    <p>Blank sample made to your size and material direction. Best for fit and closure testing.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-tag">Custom</span>
+                    <h3>Printed Sample</h3>
+                    <p>Printed sample for layout, color direction, and shelf presentation before production.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-tag">Final Check</span>
+                    <h3>Pre-production Sample</h3>
+                    <p>Production-grade sample with confirmed material, print, finish, and add-ons.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-tag">Color</span>
+                    <h3>Print Proof</h3>
+                    <p>Flat color proof for checking CMYK output before committing to full packaging production.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-tag">Finish</span>
+                    <h3>Press Proof</h3>
+                    <p>Color and finish proof using production print setup for premium launches.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background:#fffaf5;">
+        <div class="container-wide">
+            <div class="section-header">
+                <span class="section-tag">Comparison</span>
+                <h2>Sample guide.</h2>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Sample Type</th>
+                        <th>Best For</th>
+                        <th>Print</th>
+                        <th>Finishes</th>
+                        <th>Typical Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Sample Kit</td><td>Material and finish reference</td><td>Reference only</td><td>Reference swatches</td><td>Early exploration</td></tr>
+                    <tr><td>Structural Sample</td><td>Size and closure fit</td><td>No</td><td>No</td><td>Testing dimensions</td></tr>
+                    <tr><td>Printed Sample</td><td>Artwork layout preview</td><td>Yes</td><td>No premium add-ons</td><td>Visual approval</td></tr>
+                    <tr><td>Pre-production Sample</td><td>Final production approval</td><td>Yes</td><td>Yes</td><td>Before bulk order</td></tr>
+                    <tr><td>Print Proof</td><td>Color check</td><td>Flat print</td><td>No</td><td>Color review</td></tr>
+                    <tr><td>Press Proof</td><td>Color and finish check</td><td>Production print</td><td>Yes</td><td>Premium launch approval</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section-padding service-quote-section" id="service-quote">
+        <div class="container-wide">
+            <div class="service-quote-panel">
+                <div>
+                    <span class="section-tag" style="color: rgba(255,250,245,0.72);">Service Quote</span>
+                    <h2 style="font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1; margin: 0.8rem 0 1rem;">Need help choosing the right service?</h2>
+                    <p style="max-width: 520px;">Send your contact details and select the support you need. The Cosmo Packaging will guide the next step by call or email.</p>
+                </div>
+
+                <form class="service-quote-form" id="serviceQuoteForm" novalidate onsubmit="handleServiceQuote(event)">
+                    <div id="serviceFormAlert" class="service-form-alert"></div>
+                    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem;">
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="serviceName">Full Name <span style="color: var(--accent-red);">*</span></label>
+                            <input class="quote-input" id="serviceName" type="text" required autocomplete="name">
+                        </div>
+                        <div class="quote-field-group">
+                            <label class="quote-label" for="serviceEmail">Email <span style="color: var(--accent-red);">*</span></label>
+                            <input class="quote-input" id="serviceEmail" type="email" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="quote-field-group">
+                        <label class="quote-label" for="servicePhone">Phone / WhatsApp <span style="color: var(--accent-red);">*</span></label>
+                        <input class="quote-input" id="servicePhone" type="tel" required autocomplete="tel" placeholder="Country code + number">
+                    </div>
+                    <div class="quote-field-group">
+                        <label class="quote-label" for="serviceNeed">Service Needed <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                        <select class="quote-input quote-select" id="serviceNeed">
+                            <option value="">Not sure yet</option>
+                            <option value="Dieline Setup">Dieline Setup</option>
+                            <option value="Structural Design">Structural Design</option>
+                            <option value="Sample Support">Sample Support</option>
+                            <option value="Artwork Check">Artwork Check</option>
+                            <option value="Production Support">Production Support</option>
+                        </select>
+                    </div>'
+                    <div class="quote-field-group">
+                        <label class="quote-label" for="serviceArtworkStatus">Do you have print-ready artwork? <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                        <select class="quote-input quote-select" id="serviceArtworkStatus">
+                            <option value="Not sure">Not sure</option>
+                            <option value="Yes, I have print-ready AI/PDF artwork">Yes, I have print-ready AI/PDF artwork</option>
+                            <option value="I have logo only">I have logo only</option>
+                            <option value="I need artwork help">I need artwork help</option>
+                            <option value="I need dieline/template">I need dieline/template</option>
+                        </select>
+                    </div>
+'
+                    <div class="quote-field-group">
+                        <label class="quote-label" for="serviceMessage">Notes <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                        <textarea class="quote-input" id="serviceMessage" rows="4" placeholder="Tell us what you are launching"></textarea>
+                    </div>
+                    <button type="submit" class="btn-luxury" id="serviceSubmitBtn" style="width: 100%;">Get Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-wide">
+            <div class="footer-bottom" style="border-top:0; padding-top:0;">
+                <p>&copy; 2026 The Cosmo Packaging. All rights reserved.</p>
+                <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+                    <a href="quote-request.html" style="color:var(--text-muted); text-decoration:none;">Get Quote</a>
+                    <a href="help.html" style="color:var(--text-muted); text-decoration:none;">Help</a>
+                    <a href="contact.html" style="color:var(--text-muted); text-decoration:none;">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/lead-schema.js"></script>
+    <script src="js/webhook.js"></script>
+    <script src="js/site-shell.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        async function handleServiceQuote(event) {
+            event.preventDefault();
+            const alertEl = document.getElementById('serviceFormAlert');
+            const submitBtn = document.getElementById('serviceSubmitBtn');
+            const name = document.getElementById('serviceName').value.trim();
+            const email = document.getElementById('serviceEmail').value.trim();
+            const phone = document.getElementById('servicePhone').value.trim();
+
+            const showMessage = (message, type = 'error') => {
+                alertEl.textContent = message;
+                alertEl.className = type === 'success' ? 'service-form-alert success' : 'service-form-alert';
+                alertEl.style.display = 'block';
+            };
+
+            if (!name || !email || !phone) {
+                showMessage('Please add your name, email, and phone number.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showMessage('Please enter a valid email address.');
+                return;
+            }
+
+            const serviceNeed = document.getElementById('serviceNeed').value;
+            const serviceMessage = document.getElementById('serviceMessage').value.trim();
+            const payload = window.CosmoLeadSchema.normalizeLead({
+                source: 'services',
+                page_url: window.location.href,
+                lead_type: 'service_quote',
+                full_name: name,
+                email,
+                phone,
+                product: serviceNeed,
+                artwork_status: document.getElementById('serviceArtworkStatus') ? document.getElementById('serviceArtworkStatus').value : '',
+                message: serviceMessage,
+                notes: `Service need: ${serviceNeed}`
+            });
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            try {
+                if (window.CosmoWebhook) {
+                    await window.CosmoWebhook.dispatchLead('quote', payload);
+                } else {
+                    const key = 'cosmo_pending_quotes';
+                    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+                    existing.push(payload);
+                    localStorage.setItem(key, JSON.stringify(existing));
+                }
+                document.getElementById('serviceQuoteForm').reset();
+                showMessage('Request received. The Cosmo Packaging will contact you with the next step.', 'success');
+            } catch (error) {
+                showMessage('Submission could not reach automation. Please try again; your local backup will be used if the endpoint is unavailable.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get Quote';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

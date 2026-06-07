@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artwork Guide for Custom Packaging | The Cosmo Packaging</title>
+    <meta name="description" content="Artwork and pre-press guidance for custom packaging files, including dieline setup, bleed, safe zones, color mode, finishing layers, and production review.">
+    <!-- Core Luxury Style Stylesheet -->
+    <link rel="stylesheet" href="css/luxury-style.css">
+    <style>
+        /* Specific page overrides for artwork guide */
+        .subcat-header {
+            padding: 8rem 5% 4rem 5%;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 991px) {
+            .guide-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .rule-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .rule-badge {
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+            display: inline-block;
+        }
+
+        .rule-badge.bleed { background: rgba(0, 113, 227, 0.08); color: var(--accent-blue); }
+        .rule-badge.crease { background: rgba(217, 56, 58, 0.08); color: var(--accent-red); }
+        .rule-badge.cut { background: rgba(29, 29, 31, 0.08); color: var(--text-primary); }
+        .rule-badge.safety { background: rgba(52, 199, 89, 0.08); color: var(--accent-green); }
+
+        /* Highlighted info box */
+        .technical-callout {
+            border-left: 2px solid var(--text-primary);
+            padding: 1.5rem;
+            background: var(--bg-card);
+            margin: 2rem 0;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .specs-section {
+            background: #fbfbfa;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Responsive styling for specifications chart */
+        .specs-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 2rem;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            background: #ffffff;
+        }
+
+        .specs-table th {
+            white-space: nowrap;
+            background: var(--bg-card);
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .specs-table td {
+            white-space: nowrap;
+        }
+
+        .dieline-template-card {
+            min-height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.25rem;
+            background: var(--template-bg, var(--img-tuck)) center / cover no-repeat;
+            border: 1px solid rgba(29, 29, 31, 0.12);
+            box-shadow: var(--shadow-subtle);
+            isolation: isolate;
+            transition: var(--transition-smooth);
+        }
+
+        .dieline-template-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(29, 29, 31, 0.08), rgba(29, 29, 31, 0.72));
+            z-index: -1;
+        }
+
+        .dieline-template-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(29, 29, 31, 0.16);
+        }
+
+        .dieline-template-card h4 {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body data-page="artwork">
+
+    <!-- LUXURY HEADER NAVIGATION -->
+    <header>
+        <a href="index.html" class="brand-logo-container">
+            <div class="logo-box">TCP</div>
+            <span class="brand-name">The Cosmo Packaging</span>
+        </a>
+        <nav>
+            <a href="index.html">Overview</a>
+            <a href="tuck-end-boxes.html">Tuck End Boxes</a>
+            <a href="mailer-boxes.html">Mailer Boxes</a>
+            <a href="mylar-bags.html">Mylar Bags</a>
+            <a href="artwork-guide.html" class="active">Artwork Guide</a>
+            <a href="sample-kit-checkout.html">Sample Kit</a>
+            <a href="quote-request.html" class="btn-luxury" style="padding: 0.5rem 1.25rem; font-size: 0.75rem;">Get Quote</a>
+        </nav>
+    </header>
+
+    <!-- SECTION TITLE & SUB-CATEGORY HEADER -->
+    <section class="subcat-header">
+        <div class="container-wide">
+            <div class="guide-grid">
+                <div>
+                    <span class="technical-label">Pre-Press Sourcing & Engineering</span>
+                    <h1 style="font-size: 3.8rem; line-height: 1.1; margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                        Pre-Press & CAD <br><span class="serif-italics">Guidelines.</span>
+                    </h1>
+                    <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6;">
+                        A detailed breakdown of pre-press dieline formatting parameters, graphic bleed requirements, and design tolerances. Follow these layout specifications to verify your packaging runs assemble without defects.
+                    </p>
+                    <a href="#get-quote" class="btn-luxury" style="display: inline-block; margin-top: 1.25rem;">Use quick guidance form</a>
+                </div>
+                <div style="border-left: 1px solid var(--border-technical); padding-left: 2rem;">
+                    <span class="technical-label">Standard Pre-Press Rules</span>
+                    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; font-family: var(--font-ui); font-size: 0.8rem; color: var(--text-secondary);">
+                        <div><strong>FILE FORMATS:</strong> Adobe Illustrator, PDF, or EPS.</div>
+                        <div><strong>COLOR SPACE:</strong> CMYK colorspace exclusively.</div>
+                        <div><strong>RESOLUTION:</strong> 300 DPI flat graphics.</div>
+                        <div><strong>FONTS SYSTEM:</strong> All text outlined (vector curves).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLICIT STRUCTURAL DIELINE REQUIREMENTS -->
+    <section id="dielines" class="section-padding" style="background: #ffffff;">
+        <div class="container-wide" style="max-width: 1100px;">
+            <div class="section-header">
+                <span class="section-tag">CAD Blueprint Layout Rules</span>
+                <h2>Structural Line Conventions</h2>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+                    Dielines utilize standardized visual colors to communicate mechanical functions directly to die-cut presses and printing rollers.
+                </p>
+            </div>
+
+            <!-- Dieline Explanatory Diagram -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; padding: 3rem; display: flex; justify-content: center; align-items: center; margin-bottom: 4rem;">
+                <svg width="600" height="200" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%;">
+                    <!-- Bleed Line (Blue) -->
+                    <rect x="20" y="20" width="560" height="160" stroke="#0071e3" stroke-width="1" stroke-dasharray="3 3" />
+                    
+                    <!-- Cut Line (Black) -->
+                    <rect x="35" y="35" width="530" height="130" stroke="#1d1d1f" stroke-width="1.5" />
+                    
+                    <!-- Safety Margin Line (Green) -->
+                    <rect x="50" y="50" width="500" height="100" stroke="#34c759" stroke-width="0.8" stroke-dasharray="1 1" />
+                    
+                    <!-- Crease Line (Red Dashed) -->
+                    <line x1="200" y1="35" x2="200" y2="165" stroke="#d9383a" stroke-width="1.2" stroke-dasharray="4 3" />
+                    <line x1="400" y1="35" x2="400" y2="165" stroke="#d9383a" stroke-width="1.2" stroke-dasharray="4 3" />
+                    
+                    <!-- Annotations -->
+                    <text x="117" y="105" fill="#1d1d1f" font-family="Outfit" font-size="9" text-anchor="middle" font-weight="600">PANEL A</text>
+                    <text x="300" y="105" fill="#1d1d1f" font-family="Outfit" font-size="9" text-anchor="middle" font-weight="600">PANEL B</text>
+                    <text x="482" y="105" fill="#1d1d1f" font-family="Outfit" font-size="9" text-anchor="middle" font-weight="600">PANEL C</text>
+                    
+                    <!-- Indicators lines -->
+                    <path d="M 580 20 L 590 20" stroke="#0071e3" stroke-width="1" />
+                    <text x="595" y="23" fill="#0071e3" font-family="Outfit" font-size="7">BLEED LIMIT (3mm overlap)</text>
+                    
+                    <path d="M 565 35 L 590 35" stroke="#1d1d1f" stroke-width="1" />
+                    <text x="595" y="38" fill="#1d1d1f" font-family="Outfit" font-size="7">CUT BOUNDARY (Outer edge)</text>
+                    
+                    <path d="M 400 150 L 415 170" stroke="#d9383a" stroke-width="0.8" />
+                    <text x="418" y="173" fill="#d9383a" font-family="Outfit" font-size="7">CREASE / FOLD INDICATOR</text>
+                    
+                    <path d="M 550 50 L 590 50" stroke="#34c759" stroke-width="0.8" />
+                    <text x="595" y="53" fill="#34c759" font-family="Outfit" font-size="7">SAFETY INSET (3mm margin)</text>
+                </svg>
+            </div>
+
+            <!-- The Rule Cards -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <!-- Bleed line -->
+                <div class="rule-card">
+                    <span class="rule-badge bleed">Bleed Lines (Blue)</span>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Bleed Overlap Requirements</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                        Bleed lines are highlighted in a <strong style="color: var(--accent-blue);">dotted blue</strong> profile, situated exactly <strong>3mm outside</strong> the final cut boundaries. Extend all background artworks, flood tones, and decorative graphic edges fully out to this line to prevent raw white cardboard edges from appearing due to slight shifting during industrial sheet cutting.
+                    </p>
+                </div>
+
+                <!-- Crease line -->
+                <div class="rule-card">
+                    <span class="rule-badge crease">Crease Lines (Red)</span>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Crease & Folding Thresholds</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                        Folding axes are marked with <strong style="color: var(--accent-red);">dashed red</strong> lines. These designate the precise coordinates where the cardboard sheets will be pressed or creased inside the factory before manual or machine assembly. Keep typography or layout components well centered away from these lines to avoid fold distortion.
+                    </p>
+                </div>
+
+                <!-- Cut line -->
+                <div class="rule-card">
+                    <span class="rule-badge cut">Cut Lines (Black)</span>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Cut Boundary Solid Profile</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                        Cut boundaries are depicted with <strong>solid black</strong> lines. These lines instruct the computer-guided die steel blades where to punch out the card shapes from flat paperboards. The cut line marks the absolute physical limits of your finished box face.
+                    </p>
+                </div>
+
+                <!-- Safety margin -->
+                <div class="rule-card">
+                    <span class="rule-badge safety">Safety Margins (Green)</span>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Inner Safe Zone Margin</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                        Safety margins are represented by <strong style="color: var(--accent-green);">green boundaries</strong> sitting exactly <strong>3mm inside</strong> the cut lines. All typography, product labels, B2B logotypes, or crucial graphic ingredients must remain completely within this safe zone limit to shield them from getting clipped or positioned too close to edges.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 4rem; margin-bottom: 1.5rem;">
+                <span class="section-tag">Template Library</span>
+                <h2 style="font-size: 2rem;">Packaging Dieline Requests</h2>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem; max-width: 720px;">
+                    Select a packaging format below to open a pre-filled quote request. The Cosmo Packaging prepares the correct dieline after your size, material, and structure are confirmed.
+                </p>
+            </div>
+
+            <div id="dielineTemplateGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;"></div>
+
+            <div class="technical-callout">
+                <strong>Pre-Press Warning:</strong> Submitting artwork layout files with missing bleed margins, RGB colored vector paths, or flattened non-outlined fonts is the leading trigger for B2B batch delay holds. Please verify files comply with the 300DPI, CMYK, outlined rules before submission.
+            </div>
+        </div>
+    </section>
+
+    <!-- THE COSMO PACKAGING SOURCING GUIDE - ALL 12 PRODUCTS -->
+    <section class="section-padding specs-section" id="sourcing-chart">
+        <div class="container-wide">
+            <div class="section-header">
+                <span class="section-tag">Manufacturing Reference</span>
+                <h2>The Cosmo Packaging Sourcing Guide</h2>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+                    A practical manufacturing benchmark for the twelve primary packaging sub-products. Final specs can vary by product weight, finish, print method, and supplier setup.
+                </p>
+            </div>
+
+            <!-- Specification Table Wrapper -->
+            <div class="specs-table-wrapper">
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th>Product Family</th>
+                            <th>Sub-Product Format</th>
+                            <th>Starting MOQ</th>
+                            <th>Material Standard</th>
+                            <th>Thickness / Caliper</th>
+                            <th>Key Mechanical Feature</th>
+                            <th>Recommended Finishing Upgrade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tuck End Boxes (4) -->
+                        <tr>
+                            <td><strong>Tuck End Boxes</strong></td>
+                            <td>Straight Tuck (STE)</td>
+                            <td>100 Units</td>
+                            <td>SBS / FBB folding carton board</td>
+                            <td>300-400gsm / 16-22pt</td>
+                            <td>Straight tuck closure for clean shelf display</td>
+                            <td>Velvet Soft-Touch Lamination</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuck End Boxes</strong></td>
+                            <td>Reverse Tuck (RTE)</td>
+                            <td>100 Units</td>
+                            <td>SBS / FBB folding carton board</td>
+                            <td>300-400gsm / 16-22pt</td>
+                            <td>Reverse tuck layout for efficient carton nesting</td>
+                            <td>Gloss UV + Debossed Logo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuck End Boxes</strong></td>
+                            <td>Auto-Lock Bottom</td>
+                            <td>100 Units</td>
+                            <td>SBS / kraftback folding carton board</td>
+                            <td>350-450gsm / 18-24pt</td>
+                            <td>Pre-glued instant pop base</td>
+                            <td>Metallic Hot Foil Accent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuck End Boxes</strong></td>
+                            <td>Snap-Lock (1-2-3)</td>
+                            <td>100 Units</td>
+                            <td>SBS / kraftback folding carton board</td>
+                            <td>350-450gsm / 18-24pt</td>
+                            <td>Glueless 3-action base lock</td>
+                            <td>Matte Varnish Coat</td>
+                        </tr>
+                        
+                        <!-- Mailers (4) -->
+                        <tr>
+                            <td><strong>Mailer Boxes</strong></td>
+                            <td>RETT Layout</td>
+                            <td>100 Units</td>
+                            <td>E-flute corrugated board</td>
+                            <td>Approx. 1.3-1.9mm</td>
+                            <td>Double sidewalls (no adhesive)</td>
+                            <td>Matte Lamination + Inside print</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mailer Boxes</strong></td>
+                            <td>Dust Flaps Lock</td>
+                            <td>100 Units</td>
+                            <td>Kraft E-flute corrugated board</td>
+                            <td>Approx. 1.3-1.9mm</td>
+                            <td>Dust flaps with secure side closure</td>
+                            <td>Bleached white grid overlay</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mailer Boxes</strong></td>
+                            <td>Kraft Mailers</td>
+                            <td>100 Units</td>
+                            <td>Natural kraft E-flute board</td>
+                            <td>Approx. 1.3-1.9mm</td>
+                            <td>Rigid kraft board with recyclable material options</td>
+                            <td>1-Color Matte Black Screenprint</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mailer Boxes</strong></td>
+                            <td>Premium Rigid Mailers</td>
+                            <td>100 Units</td>
+                            <td>Wrapped greyboard / rigid board</td>
+                            <td>Approx. 1.5-2.5mm</td>
+                            <td>Rigid gift-box structure with reinforced panels</td>
+                            <td>Wrapped Custom Linen Paper + Foil</td>
+                        </tr>
+
+                        <!-- Mylar (4) -->
+                        <tr>
+                            <td><strong>Mylar Bags</strong></td>
+                            <td>Stand-Up Pouches</td>
+                            <td>100 Units</td>
+                            <td>PET / AL / PE or LLDPE laminate</td>
+                            <td>Approx. 90-150 microns</td>
+                            <td>Expandable round bottom gusset</td>
+                            <td>Velvet Soft-Touch + Spot Gloss UV</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mylar Bags</strong></td>
+                            <td>Flat Pouches (Sachets)</td>
+                            <td>100 Units</td>
+                            <td>PET / PE laminate</td>
+                            <td>Approx. 70-120 microns</td>
+                            <td>3-side heat weld, low cost sachet</td>
+                            <td>Holographic metallic finish overlay</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mylar Bags</strong></td>
+                            <td>Gusseted Pouches</td>
+                            <td>100 Units</td>
+                            <td>PET / VMPET / PE barrier laminate</td>
+                            <td>Approx. 90-150 microns</td>
+                            <td>Expanding vertical side pleats</td>
+                            <td>Matte finish + tear notch strip</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mylar Bags</strong></td>
+                            <td>Child-Resistant Lock</td>
+                            <td>100 Units</td>
+                            <td>PET / AL / PE or nylon barrier laminate</td>
+                            <td>Approx. 100-160 microns</td>
+                            <td>Child-resistant zipper or slider closure</td>
+                            <td>Matte black + technical warning label</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMPLE GET QUOTE - client ease -->
+    <section id="get-quote" class="quick-quote-section">
+        <div class="quick-quote-inner">
+            <span class="section-tag" style="color: rgba(255,255,255,0.5);">Not sure what to order?</span>
+            <h2>One click. We handle the rest.</h2>
+            <p>
+                Confused by dielines, board types, or pouch formats? You do not need to figure it out alone.
+                Tell us what you are launching - click <strong>Get Quote</strong> and our team will recommend the right packaging route with a supplier-informed quote range within 24 calendar hours.
+            </p>
+            <form id="quickQuoteForm" class="quick-quote-form" novalidate onsubmit="handleQuickQuote(event)">
+                <div id="quickQuoteAlert" class="quick-quote-alert"></div>
+                <div class="quote-field-group">
+                    <label class="quote-label" for="quickName">Full Name <span style="color: #ffb4b4;">*</span></label>
+                    <input class="quote-input" type="text" id="quickName" required>
+                </div>
+                <div class="quote-field-group">
+                    <label class="quote-label" for="quickEmail">Email <span style="color: #ffb4b4;">*</span></label>
+                    <input class="quote-input" type="email" id="quickEmail" required>
+                </div>
+                <div class="quote-field-group">
+                    <label class="quote-label" for="quickPhone">Phone / WhatsApp <span style="color: #ffb4b4;">*</span></label>
+                    <input class="quote-input" type="tel" id="quickPhone" required placeholder="Country code + number">
+                </div>'
+                <div class="quote-field-group">
+                    <label class="quote-label" for="quickArtworkStatus">Do you have print-ready artwork?</label>
+                    <select class="quote-input quote-select" id="quickArtworkStatus">
+                        <option value="Not sure">Not sure</option>
+                        <option value="Yes, I have print-ready AI/PDF artwork">Yes, I have print-ready AI/PDF artwork</option>
+                        <option value="I have logo only">I have logo only</option>
+                        <option value="I need artwork help">I need artwork help</option>
+                        <option value="I need dieline/template">I need dieline/template</option>
+                    </select>
+                </div>
+'
+                <div class="quote-field-group">
+                    <label class="quote-label" for="quickMessage">What are you packaging? <span style="opacity: 0.7;">(optional)</span></label>
+                    <textarea class="quote-input" id="quickMessage" rows="3" placeholder="e.g. serum bottles, sheet masks, subscription box - we will guide you"></textarea>
+                </div>
+                <button type="submit" class="btn-luxury" style="width: 100%; margin-top: 0.5rem;">Get Quote</button>
+                <p style="font-size: 0.75rem; margin-top: 1rem; opacity: 0.65; text-align: center;">
+                    Prefer the full form? <a href="quote-request.html" style="color: #fff; text-decoration: underline;">Open detailed quote request</a>
+                </p>
+            </form>
+            <div id="quickQuoteSuccess" class="quick-quote-success">
+                <h3 class="serif-italics" style="color: #fff; margin-bottom: 0.75rem;">Request received</h3>
+                <p>We will email <strong id="quickQuoteSuccessEmail" style="color: #fff;"></strong> within 24 calendar hours with clear packaging options - no guesswork required.</p>
+                <a href="quote-request.html" class="btn-luxury-outline" style="margin-top: 1.5rem; display: inline-block; border-color: rgba(255,255,255,0.4); color: #fff;">Add full specifications</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-wide">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="brand-logo-container" style="margin-bottom: 1.5rem;">
+                        <div class="logo-box">TCP</div>
+                        <span class="brand-name">The Cosmo Packaging</span>
+                    </a>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 320px; line-height: 1.6;">
+                        A premium packaging partner combining light-luxury industrial design templates with flawless, factory-direct manufacturing.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>Packaging Catalog</h4>
+                    <ul class="footer-links">
+                        <li><a href="tuck-end-boxes.html">Tuck End Boxes</a></li>
+                        <li><a href="mailer-boxes.html">Mailer Boxes</a></li>
+                        <li><a href="mylar-bags.html">Mylar Bags</a></li>
+                        <li><a href="artwork-guide.html">Artwork Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Production Systems</h4>
+                    <ul class="footer-links">
+                        <li><a href="artwork-guide.html#dielines">Vector Dielines</a></li>
+                        <li><a href="artwork-guide.html#sourcing-chart">Cosmo Sourcing Guide</a></li>
+                        <li><a href="artwork-guide.html#get-quote">Quick Guidance Form</a></li>
+                        <li><a href="index.html#features">24-Hour Quote Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Sourcing Offices</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                        CEO Sourcing Operations:<br>
+                        Lahore, Pakistan<br>
+                        <a href="mailto:support@thecosmopackaging.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500;">support@thecosmopackaging.com</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Cosmo Packaging. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="contact.html" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+                    <a href="terms.html" style="color: var(--text-muted); text-decoration: none;">Terms of Sale</a>
+                    <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/lead-schema.js"></script>
+    <script src="js/webhook.js"></script>
+    <script src="js/quick-quote.js"></script>
+    <script src="js/site-shell.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('dielineTemplateGrid');
+            const templates = (window.CosmoConfig && window.CosmoConfig.dielineTemplates) || [];
+            if (!grid || !templates.length) return;
+
+            const templateImages = {
+                'tuck-end-ste': 'var(--img-tuck)',
+                'tuck-end-rte': 'var(--img-tuck)',
+                'tuck-end-autolock': 'var(--img-tuck)',
+                'tuck-end-snaplock': 'var(--img-tuck)',
+                'mailer-rett': 'var(--img-mailer)',
+                'mailer-dustflap': 'var(--img-mailer)',
+                'mailer-kraft': 'var(--img-mailer-kraft)',
+                'mailer-rigid': 'var(--img-mailer-rigid)',
+                'mylar-standup': 'var(--img-mylar)',
+                'mylar-flat': 'var(--img-mylar-flat)',
+                'mylar-gusseted': 'var(--img-mylar)',
+                'mylar-cr': 'var(--img-mylar-cr)'
+            };
+
+            grid.innerHTML = templates.map(t => `
+                <div class="dieline-template-card" style="--template-bg: ${templateImages[t.slug] || 'var(--img-tuck)'};">
+                    <div>
+                    <h4 style="font-size: 1.05rem; margin-bottom: 0.75rem; font-weight: 500;">${t.label}</h4>
+                    <a href="quote-request.html?product=${t.slug}" class="btn-luxury" style="font-size: 0.7rem; padding: 0.45rem 0.9rem;">Get Quote</a>
+                    </div>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

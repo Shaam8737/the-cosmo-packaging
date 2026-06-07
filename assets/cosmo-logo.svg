@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" role="img" aria-labelledby="title desc">
+  <title id="title">The Cosmo Packaging Logo</title>
+  <desc id="desc">A premium olive TCP monogram and wordmark for The Cosmo Packaging.</desc>
+  <rect width="640" height="160" rx="24" fill="#fffaf5"/>
+  <rect x="32" y="32" width="96" height="96" rx="18" fill="#263820"/>
+  <path d="M49 55h62v48H49z" fill="none" stroke="#fffaf5" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M49 55 61 43h62l-12 12M111 55v48l12-12V43" fill="none" stroke="#d9c79f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M61 43v12" stroke="#d9c79f" stroke-width="3" stroke-linecap="round"/>
+  <text x="80" y="86" text-anchor="middle" fill="#fffaf5" font-family="Outfit, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="1.5">TCP</text>
+  <path d="M109 42v76" stroke="#d9c79f" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+  <text x="160" y="74" fill="#263820" font-family="Outfit, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="5">THE COSMO</text>
+  <text x="162" y="108" fill="#607056" font-family="Outfit, Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="7">PACKAGING</text>
+  <path d="M160 122h336" stroke="#d9c79f" stroke-width="2" stroke-linecap="round"/>
+</svg>

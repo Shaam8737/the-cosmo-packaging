@@ -1,0 +1,1069 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Beauty Packaging Quote | The Cosmo Packaging</title>
+    <meta name="description" content="Request a supplier-informed custom beauty packaging quote within 24 hours for skincare, cosmetics, and PR packaging. Share product specs, quantity, and timeline.">
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link Global Design System -->
+    <link rel="stylesheet" href="css/luxury-style.css">
+    
+    <style>
+        /* --- Quote Interface Specific Styles --- */
+        .quote-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .quote-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+        
+        .nav-btn-luxury {
+            background: var(--text-primary);
+            border: 1px solid var(--text-primary);
+            border-radius: 50px;
+            padding: 0.5rem 1.25rem;
+            color: var(--text-light) !important;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-btn-luxury:hover {
+            background: transparent;
+            color: var(--text-primary) !important;
+            box-shadow: 0 4px 12px rgba(29, 29, 31, 0.08);
+        }
+        
+        /* Premium Alert Banner */
+        .luxury-alert-banner {
+            background: rgba(217, 56, 58, 0.05);
+            border: 1px solid rgba(217, 56, 58, 0.2);
+            color: var(--accent-red);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-sans);
+            animation: alertShake 0.4s ease-in-out;
+        }
+        
+        @keyframes alertShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-4px); }
+            40%, 80% { transform: translateX(4px); }
+        }
+        
+        .luxury-alert-banner.success {
+            background: rgba(52, 199, 89, 0.05);
+            border: 1px solid rgba(52, 199, 89, 0.2);
+            color: var(--accent-green);
+        }
+        
+        .luxury-alert-banner.info {
+            background: rgba(0, 113, 227, 0.05);
+            border: 1px solid rgba(0, 113, 227, 0.2);
+            color: var(--accent-blue);
+        }
+        
+        /* Spinner */
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-top: 2px solid var(--text-light);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Hide dev webhook inspector unless ?debug=true */
+        .payload-inspector-btn { display: none; }
+        body.debug-mode .payload-inspector-btn { display: flex; }
+
+        /* Webhook target badge override */
+        .payload-status-badge {
+            background: rgba(142, 142, 147, 0.1);
+            color: var(--text-secondary);
+        }
+
+        .quote-dim-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 0.8fr;
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 600px) {
+            .quote-dim-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .launch-offer-banner {
+            background: linear-gradient(135deg, rgba(96, 112, 86, 0.12), rgba(248, 244, 237, 0.95));
+            border: 1px solid rgba(96, 112, 86, 0.24);
+            border-radius: 10px;
+            padding: 1rem 1.15rem;
+            margin: 1.25rem auto 0;
+            max-width: 780px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .quote-summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .quote-summary-row:last-child {
+            border-bottom: 0;
+        }
+
+        .quote-summary-row strong {
+            color: var(--text-primary);
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .quote-brand-panel {
+            position: relative;
+            overflow: hidden;
+            min-height: 360px;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(96, 112, 86, 0.26);
+            background:
+                linear-gradient(135deg, rgba(30, 52, 28, 0.94), rgba(30, 52, 28, 0.78)),
+                var(--img-sample) center / cover;
+            color: var(--text-light);
+            box-shadow: 0 24px 55px rgba(29, 38, 26, 0.18);
+        }
+
+        .quote-brand-panel::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.16), transparent 34%);
+            pointer-events: none;
+        }
+
+        .quote-brand-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+        }
+
+        .quote-brand-mark {
+            width: 54px;
+            height: 54px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.4rem;
+        }
+
+        .quote-brand-panel h3 {
+            color: var(--text-light);
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 0.95;
+            max-width: 420px;
+            margin-bottom: 1rem;
+        }
+
+        .quote-brand-panel p {
+            color: rgba(255, 255, 255, 0.76);
+            max-width: 440px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .quote-brand-list {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .quote-brand-list span {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 0.8rem;
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 0.75rem;
+            line-height: 1.4;
+            font-family: var(--font-ui);
+        }
+
+        @media (max-width: 600px) {
+            .quote-brand-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-page="quote">
+
+    <!-- HEADER NAVIGATION -->
+    <header>
+        <a href="index.html" class="brand-logo-container">
+            <div class="logo-box">TCP</div>
+            <span class="brand-name">The Cosmo Packaging</span>
+        </a>
+        <nav>
+            <a href="index.html">Overview</a>
+            <a href="tuck-end-boxes.html">Tuck End Boxes</a>
+            <a href="mailer-boxes.html">Mailer Boxes</a>
+            <a href="mylar-bags.html">Mylar Bags</a>
+            <a href="artwork-guide.html">Artwork Guide</a>
+            <a href="sample-kit-checkout.html">Sample Kit</a>
+            <a href="quote-request.html" class="btn-luxury" style="padding: 0.5rem 1.25rem; font-size: 0.75rem;">Get Quote</a>
+        </nav>
+    </header>
+
+    <!-- MAIN INTERFACE SECTION -->
+    <section class="section-padding" style="margin-top: 3.5rem;">
+        <div class="container-wide">
+            
+            <div class="section-header">
+                <span class="technical-label">Quote Request</span>
+                <h1>Request a Custom Beauty Packaging Quote</h1>
+                <p>Share your packaging style, size, material, quantity, and launch timeline. The Cosmo Packaging will return a supplier-informed quote range within 24 calendar hours.</p>
+                <div id="launchOfferBanner" class="launch-offer-banner" hidden>
+                    Launch discount active: your request will be reviewed with launch pricing where the selected quantity, material, and timeline qualify.
+                </div>
+            </div>
+            
+            <div class="quote-grid">
+                
+                <!-- LEFT: LEAD CAPTURE CARD -->
+                <div class="luxury-card" id="quoteFormCard">
+
+                    <!-- FORM WRAPPER -->
+                    <form id="quoteRequestForm" novalidate onsubmit="handleQuoteSubmit(event)">
+
+                        <div class="form-step active" id="step-1">
+                            <h3 class="serif-italics" style="font-size: 1.8rem; margin-bottom: 0.75rem; text-align: center;">Request a Call Back</h3>
+                            <p style="text-align: center; color: var(--text-secondary); max-width: 520px; margin: 0 auto 2rem; line-height: 1.6; font-size: 0.92rem;">Leave your contact details. Packaging specs are optional, so The Cosmo Packaging can call or email you first and then guide the quotation.</p>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="fullName">Full Name</label>
+                                <input class="quote-input" type="text" id="fullName" placeholder="Your full name" autocomplete="name" required>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="email">Email Address</label>
+                                <input class="quote-input" type="email" id="email" placeholder="you@brand.com" autocomplete="email" required>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="phone">Phone / WhatsApp Number</label>
+                                <input class="quote-input" type="tel" id="phone" placeholder="+92 300 0000000" autocomplete="tel" required>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="companyName">Company / Brand Name <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <input class="quote-input" type="text" id="companyName" placeholder="Brand name if available" autocomplete="organization">
+                            </div>
+
+                            <div style="height: 1px; background: var(--border-light); margin: 2rem 0;"></div>
+
+                            <h4 style="font-family: var(--font-ui); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-primary); margin-bottom: 1.4rem;">Optional Packaging Details</h4>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="packagingType">Packaging Product Type <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <select class="quote-input quote-select" id="packagingType">
+                                    <option value="" selected>Not sure yet</option>
+                                    <optgroup label="Tuck End Boxes">
+                                        <option value="Straight Tuck End (STE)">Straight Tuck End (STE)</option>
+                                        <option value="Reverse Tuck End (RTE)">Reverse Tuck End (RTE)</option>
+                                        <option value="Auto-Lock Bottom">Auto-Lock Bottom</option>
+                                        <option value="Snap-Lock Boxes">Snap-Lock Boxes</option>
+                                    </optgroup>
+                                    <optgroup label="Corrugated Mailers">
+                                        <option value="Standard RETT Mailer">Standard RETT Mailer</option>
+                                        <option value="Mailers with Dust Flaps">Mailers with Dust Flaps</option>
+                                        <option value="Eco-Friendly Kraft Mailer">Eco-Friendly Kraft Mailer</option>
+                                        <option value="Premium Rigid Mailers">Premium Rigid Mailers</option>
+                                    </optgroup>
+                                    <optgroup label="Premium Mylar Pouches">
+                                        <option value="Stand Up Pouches">Stand Up Pouches</option>
+                                        <option value="Flat Pouches">Flat Pouches</option>
+                                        <option value="Gusseted Pouches">Gusseted Pouches</option>
+                                        <option value="Child-Resistant Pouches">Child-Resistant Pouches</option>
+                                    </optgroup>
+                                    <optgroup label="Additional By Style">
+                                        <option value="Corrugated Boxes">Corrugated Boxes</option>
+                                        <option value="Gift Box Packaging">Gift Box Packaging</option>
+                                        <option value="Cosmetics Packaging">Cosmetics Packaging</option>
+                                        <option value="Skincare Packaging">Skincare Packaging</option>
+                                        <option value="Custom Cosmetic Boxes">Custom Cosmetic Boxes</option>
+                                        <option value="PR Packaging">PR Packaging</option>
+                                        <option value="Premium Shipping Boxes">Premium Shipping Boxes</option>
+                                        <option value="Mailer Boxes with Foam Inserts">Mailer Boxes with Foam Inserts</option>
+                                        <option value="Rigid Boxes with Foam Inserts">Rigid Boxes with Foam Inserts</option>
+                                        <option value="Rigid Boxes with Custom Inlays">Rigid Boxes with Custom Inlays</option>
+                                        <option value="Rigid Boxes with Custom Inserts">Rigid Boxes with Custom Inserts</option>
+                                        <option value="Magnetic Rigid Boxes with Foam Inserts">Magnetic Rigid Boxes with Foam Inserts</option>
+                                        <option value="Magnetic Rigid Boxes with Custom Inlays">Magnetic Rigid Boxes with Custom Inlays</option>
+                                        <option value="Magnetic Rigid Boxes with Custom Inserts">Magnetic Rigid Boxes with Custom Inserts</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label">Custom Dimensions <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <div class="quote-dim-grid">
+                                    <input class="quote-input" type="number" id="dimLength" placeholder="Length" min="0.1" step="0.1">
+                                    <input class="quote-input" type="number" id="dimWidth" placeholder="Width" min="0.1" step="0.1">
+                                    <input class="quote-input" type="number" id="dimHeight" placeholder="Height" min="0.1" step="0.1">
+                                    <select class="quote-input quote-select" id="dimUnit" style="padding-right: 1.5rem;">
+                                        <option value="mm" selected>mm</option>
+                                        <option value="in">in</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="materialPreference">Material Preference <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <select class="quote-input quote-select" id="materialPreference">
+                                    <option value="" selected>Need guidance</option>
+                                    <option value="Soft-Touch Matte Paper">Soft-Touch Matte Paper (18pt)</option>
+                                    <option value="Eco-Friendly Kraft (Natural Brown)">Eco-Friendly Kraft (Natural Brown)</option>
+                                    <option value="Bleached Board (Premium White)">Bleached Board (Premium White)</option>
+                                    <option value="Premium Rigid Board">Premium Rigid Board (Greyboard laminate)</option>
+                                    <option value="Metallized Foil Board (Silver/Gold)">Metallized Foil Board (Silver/Gold)</option>
+                                    <option value="Heavyweight Art Paper (24pt)">Heavyweight Art Paper (24pt)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="quantity" id="quantityLabel">Production Quantity <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <input class="quote-input" type="number" id="quantity" placeholder="100" min="1">
+                                <div id="moqWarning" style="display: none; color: var(--accent-red); font-size: 0.75rem; margin-top: 0.6rem; font-family: var(--font-ui); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(217, 56, 58, 0.03); border: 1px dashed rgba(217, 56, 58, 0.15); padding: 0.5rem 0.75rem; border-radius: 6px;">
+                                    Quantity is below this product's MOQ. Increase quantity or contact us for validation samples.
+                                </div>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="artworkStatus">Artwork Status <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <select class="quote-input quote-select" id="artworkStatus">
+                                    <option value="Not sure" selected>Not sure</option>
+                                    <option value="Yes, I have print-ready AI/PDF artwork">Yes, I have print-ready AI/PDF artwork</option>
+                                    <option value="I have logo only">I have logo only</option>
+                                    <option value="I need artwork help">I need artwork help</option>
+                                    <option value="I need dieline/template">I need dieline/template</option>
+                                </select>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label">Shipping Destination <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <input class="quote-input" type="text" id="deliveryCity" placeholder="City">
+                                    <input class="quote-input" type="text" id="deliveryCountry" placeholder="Country">
+                                </div>
+                            </div>
+                            
+                            <div class="quote-field-group">
+                                <label class="quote-label" for="timelineTarget">Target Logistics Timeline <span style="color: var(--text-muted); font-weight: 400;">Optional</span></label>
+                                <select class="quote-input quote-select" id="timelineTarget">
+                                    <option value="" selected>Need guidance</option>
+                                    <option value="Urgent (under 3 weeks)">Urgent (under 3 weeks - Setup rush surcharge)</option>
+                                    <option value="Standard (4-6 weeks)">Standard (4-6 weeks - Standard ocean/air logistics)</option>
+                                    <option value="Flexible (6+ weeks)">Flexible (6+ weeks - Optimize logistics discounts)</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Internal Error Banner -->
+                            <div id="formAlertBanner" class="luxury-alert-banner"></div>
+                            
+                            <div style="display: flex; justify-content: flex-end; margin-top: 2.5rem;">
+                                <button type="submit" class="btn-luxury" id="submitQuoteBtn">
+                                    <span class="spinner" id="formSpinner" style="display: none; margin-right: 0.5rem;"></span>
+                                    <span>Submit Quote Request</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- SUCCESS OVERLAY SCREEN -->
+                    <div id="successScreen" style="display: none; text-align: center; padding: 2.5rem 1.5rem; animation: fadeUpStep 0.5s ease forwards;">
+                        <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(52, 199, 89, 0.08); border: 1px solid var(--accent-green); display: flex; align-items: center; justify-content: center; color: var(--accent-green); font-size: 2rem; margin: 0 auto 1.5rem auto; box-shadow: 0 0 20px rgba(52, 199, 89, 0.15);">&#10003;</div>
+                        <h3 class="serif-italics" style="font-size: 2.2rem; margin-bottom: 0.75rem;">Quote Request Received</h3>
+                        <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 2.5rem auto; line-height: 1.6; font-size: 0.9rem;">
+                            Thank you, <strong id="successPartnerName" style="color: var(--text-primary);">[Partner]</strong>. Your quote request has been received. The Cosmo Packaging will contact you by call or email at <span id="successPartnerEmail" style="text-decoration: underline; color: var(--text-primary);">[Email]</span> with a supplier-informed quote range within <strong style="color: var(--text-primary);">24 calendar hours</strong>.
+                            <span id="successRoutingNote" style="display: block; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);"></span>
+                        </p>
+                        <div style="display: flex; gap: 1rem; justify-content: center;">
+                            <a href="index.html" class="btn-luxury">Return to Gallery</a>
+                            <button class="btn-luxury-outline" onclick="resetQuoteForm()">Submit New Quote</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- RIGHT: QUOTE SUMMARY & BRANDING -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+                    <div class="luxury-card" style="padding: 1.75rem; background: var(--bg-surface);">
+                        <h4 style="font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.25rem; color: var(--text-primary);">Quote Summary</h4>
+                        <div class="quote-summary-row"><span>Packaging</span><strong id="summaryPackaging">Select style</strong></div>
+                        <div class="quote-summary-row"><span>Size</span><strong id="summarySize">Add dimensions</strong></div>
+                        <div class="quote-summary-row"><span>Quantity</span><strong id="summaryQuantity">Add units</strong></div>
+                        <div class="quote-summary-row"><span>Material</span><strong id="summaryMaterial">Select stock</strong></div>
+                        <div class="quote-summary-row"><span>Timeline</span><strong id="summaryTimeline">Select target</strong></div>
+                        <div class="quote-summary-row"><span>Offer</span><strong id="summaryOffer">Standard review</strong></div>
+                    </div>
+
+                    <div class="quote-brand-panel">
+                        <div class="quote-brand-content">
+                            <div class="quote-brand-mark">C</div>
+                            <span class="technical-label" style="color: rgba(255,255,255,0.72);">The Cosmo Packaging</span>
+                            <h3>Premium beauty packaging support for skincare and cosmetics brands.</h3>
+                            <p>We use your contact details first, then guide product style, dieline, sample approval, material choice, and production quote without forcing long forms.</p>
+                            <div class="quote-brand-list">
+                                <span>100 unit starting MOQ</span>
+                                <span>Sample-first approvals</span>
+                                <span>Artwork check included</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Production support details -->
+                    <div class="luxury-card" style="padding: 1.75rem; background: var(--bg-surface);">
+                        <h4 style="font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.25rem; color: var(--text-primary);">Production Support</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.85rem; color: var(--text-secondary);">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Quote Response</span>
+                                <strong style="color: var(--text-primary);" id="slaWindowHours">24 Calendar Hours</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Artwork Check</span>
+                                <strong style="color: var(--text-primary);">Included</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>MOQ Review</span>
+                                <strong style="color: var(--text-primary);">Checked</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Standard Packaging Options</span>
+                                <strong style="color: var(--text-primary);" id="catalogOptions">12 Formats</strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-wide">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="brand-logo-container" style="margin-bottom: 1.5rem;">
+                        <div class="logo-box">TCP</div>
+                        <span class="brand-name">The Cosmo Packaging</span>
+                    </a>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                        Premium structural B2B packaging sourcing, technical vector clearances, and manufacturing logistics for product brands, retailers, ecommerce sellers, and launch teams.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>Packaging Styles</h4>
+                    <ul class="footer-links">
+                        <li><a href="tuck-end-boxes.html">Tuck End Boxes</a></li>
+                        <li><a href="mailer-boxes.html">Mailer Boxes</a></li>
+                        <li><a href="mylar-bags.html">Mylar Bags</a></li>
+                        <li><a href="artwork-guide.html">Artwork Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Production Systems</h4>
+                    <ul class="footer-links">
+                        <li><a href="artwork-guide.html#dielines">Vector Dielines</a></li>
+                        <li><a href="artwork-guide.html#sourcing-chart">Cosmo Sourcing Guide</a></li>
+                        <li><a href="index.html#features">24-Hour Quote Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact &amp; Support</a></li>
+                        <li><a href="mailto:quotes@thecosmopackaging.com">quotes@thecosmopackaging.com</a></li>
+                        <li><a href="sample-kit-checkout.html">Free Sample Kit</a></li>
+                        <li><a href="artwork-guide.html">Technical Dieline Manual</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 The Cosmo Packaging. All rights reserved.</span>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="contact.html" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+                    <a href="terms.html" style="color: var(--text-muted); text-decoration: none;">Terms of Sale</a>
+                    <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WEBHOOK INSPECTOR COG TRIGGER -->
+    <div class="payload-inspector-btn" onclick="toggleDrawer()" title="Developer Webhook Console">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+    </div>
+
+    <!-- WEBHOOK INSPECTOR SIDE DRAWER -->
+    <div class="payload-drawer" id="payloadDrawer">
+        <div class="drawer-header">
+            <h3 style="font-family: var(--font-ui); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--text-primary);">Webhook Pipeline Inspector</h3>
+            <button class="close-drawer-btn" onclick="toggleDrawer()">-</button>
+        </div>
+        
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+                <span class="technical-label">Routing Status</span>
+                <span class="payload-status-badge" id="webhookStatusBadge">Idle</span>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-family: monospace; border: 1px solid var(--border-light); background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 6px;" id="webhookUrlDisplay">
+                Target: Resolving...
+            </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; flex-grow: 1;">
+            <span class="technical-label" style="margin-bottom: 0.5rem;">Compiled JSON Schema</span>
+            <pre class="payload-log-box" id="jsonConsole">{
+  "info": "Fill out the form to compile JSON payload in real-time."
+}</pre>
+        </div>
+        
+        <div style="font-size: 0.72rem; color: var(--text-secondary); line-height: 1.5; border-top: 1px solid var(--border-light); padding-top: 1rem;">
+            This inspector console reflects active validations and models real-time data compilations before POST dispatching to the configured self-hosted n8n webhook SLA clearing pipeline.
+        </div>
+    </div>
+
+    <!-- CORE FRAMEWORK DEPENDENCIES -->
+    <script src="js/config.js"></script>
+    <script src="js/lead-schema.js"></script>
+    <script src="js/webhook.js"></script>
+    <script src="js/site-shell.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- AUTOMATION ROUTER & INTERACTION CONTROLS -->
+    <script>
+        // Global State Variables
+        let currentStep = 1;
+        
+        // Setup values from CosmoConfig if loaded successfully
+        document.addEventListener('DOMContentLoaded', () => {
+            if (new URLSearchParams(window.location.search).get('debug') === 'true') {
+                document.body.classList.add('debug-mode');
+            }
+
+            const statusDisplay = document.getElementById('webhookUrlDisplay');
+            const slaLabel = document.getElementById('slaWindowHours');
+            
+            if (window.CosmoConfig) {
+                const webhookStatus = window.CosmoConfig.webhookEnabled
+                    ? 'LIVE'
+                    : 'OFFLINE (local backup active)';
+                if (statusDisplay) {
+                    statusDisplay.innerHTML = `Webhook: <code>${window.CosmoConfig.n8nWebhookUrl}</code><br>Gateway: <strong>${webhookStatus}</strong><br>Operation Mode: <strong>${window.CosmoConfig.mode.toUpperCase()}</strong>`;
+                }
+                if (slaLabel) slaLabel.textContent = `${window.CosmoConfig.slaHours} Calendar Hours`;
+                
+                // Group the 12 formats in the SLA listing dynamically just for display
+                const catalog = window.CosmoConfig.catalog;
+                let totalFormats = 0;
+                for (const cat in catalog) {
+                    totalFormats += catalog[cat].length;
+                }
+                const catalogOptions = document.getElementById('catalogOptions');
+                if (catalogOptions) catalogOptions.textContent = `${totalFormats} Formats`;
+            } else {
+                if (statusDisplay) statusDisplay.textContent = 'Target: Direct lead-capture pipeline active (Config missing)';
+            }
+            
+            // Attach Real-Time JSON Compilation and 3D Model updates
+            const formElements = document.querySelectorAll('#quoteRequestForm input, #quoteRequestForm select');
+            formElements.forEach(elem => {
+                elem.addEventListener('input', () => {
+                    updateLiveJson();
+                });
+                elem.addEventListener('change', () => {
+                    updateLiveJson();
+                });
+            });
+            
+            updateLiveJson();
+            applyProductFromUrl();
+            
+            // MOQ dynamically checked during input
+            const qtyInput = document.getElementById('quantity');
+            if (qtyInput) qtyInput.addEventListener('input', updateMoqHint);
+            const packagingType = document.getElementById('packagingType');
+            if (packagingType) packagingType.addEventListener('change', () => {
+                updateMoqHint();
+                updateMaterialOptions();
+            });
+            updateMaterialOptions();
+        });
+
+        function isMylarPackagingType(type) {
+            const cfg = window.CosmoConfig || {};
+            return (cfg.catalog && cfg.catalog.mylar || []).includes(type);
+        }
+
+        function updateMaterialOptions() {
+            const type = document.getElementById('packagingType').value;
+            const select = document.getElementById('materialPreference');
+            const cfg = window.CosmoConfig || {};
+            const boxOpts = cfg.materialByCategory?.box || [];
+            const mylarOpts = cfg.materialByCategory?.mylar || [];
+            const options = isMylarPackagingType(type) ? mylarOpts : boxOpts;
+            const previous = select.value;
+
+            select.innerHTML = '<option value="" selected>Need guidance</option>' +
+                options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+
+            if (previous && options.includes(previous)) {
+                select.value = previous;
+            }
+        }
+
+        function applyProductFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('product');
+            if (!slug || !window.CosmoConfig || !window.CosmoConfig.productSlugMap) return;
+
+            const packagingType = window.CosmoConfig.productSlugMap[slug];
+            if (!packagingType) return;
+
+            const select = document.getElementById('packagingType');
+            select.value = packagingType;
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+            updateMoqHint();
+            updateMaterialOptions();
+            updateLiveJson();
+        }
+
+        function getMoqForProduct(packagingType) {
+            const cfg = window.CosmoConfig || {};
+            if (cfg.moqByProduct && packagingType && cfg.moqByProduct[packagingType]) {
+                return cfg.moqByProduct[packagingType];
+            }
+            return cfg.defaultMoq || 100;
+        }
+
+        function updateMoqHint() {
+            const type = document.getElementById('packagingType').value;
+            const moq = getMoqForProduct(type);
+            const label = document.getElementById('quantityLabel');
+            const warningEl = document.getElementById('moqWarning');
+            const qtyInput = document.getElementById('quantity');
+            if (label) label.textContent = `Production Quantity (MOQ: ${moq} units)`;
+            if (qtyInput && !qtyInput.value) qtyInput.placeholder = String(moq);
+            if (!warningEl || !qtyInput) return;
+            const val = parseInt(qtyInput.value, 10);
+            if (val && val < moq) {
+                warningEl.textContent = `Typical starting MOQ is ${moq} units. Submit anyway and The Cosmo Packaging will guide the best option.`;
+                warningEl.style.display = 'block';
+            } else {
+                warningEl.style.display = 'none';
+            }
+        }
+
+        function validateQuantityMoq() {
+            const type = document.getElementById('packagingType').value;
+            const qty = parseInt(document.getElementById('quantity').value, 10);
+            const moq = getMoqForProduct(type);
+            if (qty && qty < moq) {
+                updateMoqHint();
+            }
+            return true;
+        }
+
+        // Toggle Payload Drawer Inspector
+        function toggleDrawer() {
+            const drawer = document.getElementById('payloadDrawer');
+            drawer.classList.toggle('open');
+        }
+
+        // Real-Time JSON Payload Compilation
+        function getFormData() {
+            const dims = {
+                length: parseFloat(document.getElementById('dimLength').value) || '',
+                width: parseFloat(document.getElementById('dimWidth').value) || '',
+                height: parseFloat(document.getElementById('dimHeight').value) || '',
+                unit: document.getElementById('dimUnit').value || 'mm'
+            };
+
+            return window.CosmoLeadSchema.normalizeLead({
+                source: 'quote-request',
+                page_url: window.location.href,
+                lead_type: 'detailed_quote',
+                full_name: document.getElementById('fullName').value || '',
+                company: document.getElementById('companyName').value || '',
+                email: document.getElementById('email').value || '',
+                phone: document.getElementById('phone').value || '',
+                product: document.getElementById('packagingType').value || '',
+                quantity: document.getElementById('quantity').value || '',
+                material: document.getElementById('materialPreference').value || '',
+                dimensions: dims,
+                city: document.getElementById('deliveryCity').value || '',
+                country: document.getElementById('deliveryCountry').value || '',
+                timeline: document.getElementById('timelineTarget').value || '',
+                artwork_status: document.getElementById('artworkStatus').value || '',
+                notes: `Mode: ${window.CosmoConfig ? window.CosmoConfig.mode : 'development'}`
+            });
+        }
+
+        function updateLiveJson() {
+            const data = getFormData();
+            const consoleBox = document.getElementById('jsonConsole');
+            
+            // Do not override log outputs if connection/sending is active
+            const statusBadge = document.getElementById('webhookStatusBadge');
+            const status = statusBadge ? statusBadge.textContent : 'Idle';
+            if (consoleBox && status !== 'Connecting...' && status !== 'Routing...' && !status.includes('Success') && !status.includes('Simulated')) {
+                consoleBox.textContent = JSON.stringify(data, null, 2);
+            }
+        }
+
+        // Live 3D Box Updates based on Step 2 configurations
+        function update3DBoxVisuals() {
+            const l = document.getElementById('dimLength').value || '120';
+            const w = document.getElementById('dimWidth').value || '80';
+            const h = document.getElementById('dimHeight').value || '200';
+            const unit = document.getElementById('dimUnit').value || 'mm';
+            const type = document.getElementById('packagingType').value || 'COSMO';
+            const material = document.getElementById('materialPreference').value || 'Matte 18pt';
+            
+            // Format labels beautifully on the floating faces
+            const dimLabel = document.getElementById('boxDimensionsLabel');
+            const typeLabel = document.getElementById('boxFrontLabel');
+            const materialLabel = document.getElementById('boxMaterialLabel');
+            
+            if (dimLabel) dimLabel.textContent = `${l}-${w}-${h} ${unit}`;
+            if (typeLabel) {
+                // Shorten packaging name to fit on front of box
+                const shortType = type.split(' ')[0] || 'COSMO';
+                typeLabel.textContent = shortType.substring(0, 10).toUpperCase();
+            }
+            if (materialLabel) {
+                const shortMat = material.split(' ')[0] || '18pt';
+                materialLabel.textContent = shortMat;
+            }
+        }
+
+        // Step Navigation Validation Controls
+        function showStep(stepNum) {
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            const step = document.getElementById(`step-${stepNum}`);
+            if (!step) return;
+            step.classList.add('active');
+            
+            // Progress dots updates
+            document.querySelectorAll('.step-dot').forEach((dot, idx) => {
+                const s = idx + 1;
+                dot.classList.remove('active', 'completed');
+                if (s === stepNum) {
+                    dot.classList.add('active');
+                    dot.textContent = s;
+                } else if (s < stepNum) {
+                    dot.classList.add('completed');
+                    dot.textContent = '+';
+                } else {
+                    dot.textContent = s;
+                }
+            });
+            
+            currentStep = stepNum;
+            hideAlert();
+        }
+
+        function nextStep(stepNum) {
+            if (stepNum === 1) {
+                const name = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                
+                if (!name || !email || !phone) {
+                    showAlert('Please add your name, email, and phone number.');
+                    return;
+                }
+                if (!validateEmail(email)) {
+                    showAlert('Please enter a valid email address.');
+                    return;
+                }
+                handleQuoteSubmit(new Event('submit'));
+            } else if (stepNum === 2) {
+                const l = document.getElementById('dimLength').value;
+                const w = document.getElementById('dimWidth').value;
+                const h = document.getElementById('dimHeight').value;
+                
+                if ((l && parseFloat(l) <= 0) || (w && parseFloat(w) <= 0) || (h && parseFloat(h) <= 0)) {
+                    showAlert('Dimensions must be greater than zero when provided.');
+                    return;
+                }
+                showStep(3);
+            }
+        }
+
+        function prevStep(stepNum) {
+            showStep(stepNum - 1);
+        }
+
+        // Corporate Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Custom SQS Validation Alert Display
+        function showAlert(message, type = 'error') {
+            const banner = document.getElementById('formAlertBanner');
+            banner.style.display = 'flex';
+            banner.textContent = message;
+            
+            if (type === 'error') {
+                banner.className = 'luxury-alert-banner';
+            } else if (type === 'success') {
+                banner.className = 'luxury-alert-banner success';
+            } else {
+                banner.className = 'luxury-alert-banner info';
+            }
+            
+            // Mirror error inside console drawer if open
+            const consoleBox = document.getElementById('jsonConsole');
+            if (consoleBox) consoleBox.textContent = `[FORM NOTICE] ${message}\n\nLive payload is still saved for review.`;
+            
+            const statusBadge = document.getElementById('webhookStatusBadge');
+            if (statusBadge) {
+                statusBadge.textContent = 'Form Notice';
+                statusBadge.className = 'payload-status-badge';
+                statusBadge.style.background = 'rgba(217, 56, 58, 0.1)';
+                statusBadge.style.color = 'var(--accent-red)';
+            }
+            
+            // Scroll to the card header
+            document.getElementById('quoteFormCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function hideAlert() {
+            const banner = document.getElementById('formAlertBanner');
+            banner.style.display = 'none';
+            
+            const statusBadge = document.getElementById('webhookStatusBadge');
+            if (statusBadge && statusBadge.textContent === 'Form Notice') {
+                statusBadge.textContent = 'Idle';
+                statusBadge.className = 'payload-status-badge';
+                statusBadge.style.background = '';
+                statusBadge.style.color = '';
+            }
+            updateLiveJson();
+        }
+
+        // Webhook Data Dispatch Engine
+        async function handleQuoteSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            if (!name || !email || !phone) {
+                showAlert('Please add your name, email, and phone number.');
+                return;
+            }
+            if (!validateEmail(email)) {
+                showAlert('Please enter a valid email address.');
+                return;
+            }
+            validateQuantityMoq();
+            
+            const submitBtn = document.getElementById('submitQuoteBtn');
+            const spinner = document.getElementById('formSpinner');
+            const btnText = submitBtn.querySelector('span:not(.spinner)');
+            
+            submitBtn.disabled = true;
+            submitBtn.style.pointerEvents = 'none';
+            spinner.style.display = 'inline-block';
+            btnText.textContent = 'Submitting...';
+            
+            const statusBadge = document.getElementById('webhookStatusBadge');
+            if (statusBadge) {
+                statusBadge.textContent = 'Connecting...';
+                statusBadge.className = 'payload-status-badge';
+                statusBadge.style.background = 'rgba(212, 175, 55, 0.1)';
+                statusBadge.style.color = 'var(--gold-primary)';
+            }
+            
+            const payload = getFormData();
+            const cfg = window.CosmoConfig || {};
+            const consoleBox = document.getElementById('jsonConsole');
+            let logText = `[SYS] INITIATING PIPELINE DISPATCH at ${new Date().toLocaleTimeString()}\n`;
+            logText += `[SYS] COMPILING SPECIFICATION SCHEMA... OK\n`;
+            logText += `[SYS] TARGET GATEWAY: ${window.CosmoWebhook ? window.CosmoWebhook.getRouteUrl('quote') : 'not configured'}\n`;
+            logText += `[SYS] MODE: ${(cfg.mode || 'development').toUpperCase()}\n`;
+            logText += `[SYS] WEBHOOK LIVE: ${cfg.webhookEnabled ? 'YES' : 'NO'}\n`;
+            if (consoleBox) consoleBox.textContent = logText;
+            
+            const debugMode = document.body.classList.contains('debug-mode');
+            if (debugMode) toggleDrawer();
+            
+            const appendLog = (line) => {
+                logText += `${line}\n`;
+                if (consoleBox) consoleBox.textContent = logText;
+            };
+
+            try {
+                const result = await window.CosmoWebhook.dispatchQuote(payload, appendLog);
+                appendLog('[SYS] FACTORY ROUTING SUCCESSFUL');
+
+                if (result.status === 'fallback') {
+                    if (statusBadge) {
+                        statusBadge.textContent = 'Saved Locally';
+                        statusBadge.style.background = 'rgba(0, 113, 227, 0.1)';
+                        statusBadge.style.color = 'var(--accent-blue)';
+                    }
+                } else if (result.status === 'local_backup') {
+                    if (statusBadge) {
+                        statusBadge.textContent = 'Local Backup';
+                        statusBadge.style.background = 'rgba(0, 113, 227, 0.1)';
+                        statusBadge.style.color = 'var(--accent-blue)';
+                    }
+                } else {
+                    if (statusBadge) {
+                        statusBadge.textContent = result.status === 'simulated' ? 'Mock Success' : 'Success';
+                        statusBadge.className = 'payload-status-badge success';
+                        statusBadge.style.background = '';
+                        statusBadge.style.color = '';
+                    }
+                }
+
+                setTimeout(() => {
+                    if (debugMode) toggleDrawer();
+                    showSuccessState(payload, result);
+                }, 800);
+            } catch (err) {
+                appendLog(`[ERR] UNEXPECTED FAILURE: ${err.message}`);
+                if (statusBadge) {
+                    statusBadge.textContent = 'Error';
+                    statusBadge.style.background = 'rgba(217, 56, 58, 0.1)';
+                    statusBadge.style.color = 'var(--accent-red)';
+                }
+                submitBtn.disabled = false;
+                submitBtn.style.pointerEvents = 'auto';
+                spinner.style.display = 'none';
+                btnText.textContent = 'Submit Quote Request';
+                showAlert('Submission failed. Please try again or email quotes@thecosmopackaging.com directly.');
+            }
+        }
+
+        // Show elegant success panel
+        function showSuccessState(payload, result) {
+            document.getElementById('quoteRequestForm').style.display = 'none';
+            const stepIndicator = document.getElementById('step-indicator-container');
+            if (stepIndicator) stepIndicator.style.display = 'none';
+            
+            document.getElementById('successPartnerName').textContent = payload.full_name;
+            document.getElementById('successPartnerEmail').textContent = payload.email;
+
+            const noteEl = document.getElementById('successRoutingNote');
+            if (result && (result.localBackup || result.status === 'simulated' || result.status === 'local_backup')) {
+                noteEl.textContent = 'Your specifications are saved locally until the Google Apps Script webhook is available.';
+            } else {
+                noteEl.textContent = '';
+            }
+            
+            document.getElementById('successScreen').style.display = 'block';
+            
+            // Scroll to the card top
+            document.getElementById('quoteFormCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Reset and clear quote parameters
+        function resetQuoteForm() {
+            document.getElementById('quoteRequestForm').reset();
+            document.getElementById('quoteRequestForm').style.display = 'block';
+            const stepIndicator = document.getElementById('step-indicator-container');
+            if (stepIndicator) stepIndicator.style.display = 'flex';
+            document.getElementById('successScreen').style.display = 'none';
+            
+            // Restore button properties
+            const submitBtn = document.getElementById('submitQuoteBtn');
+            const spinner = document.getElementById('formSpinner');
+            const btnText = submitBtn.querySelector('span:not(.spinner)');
+            submitBtn.disabled = false;
+            submitBtn.style.pointerEvents = 'auto';
+            spinner.style.display = 'none';
+            btnText.textContent = 'Submit Quote Request';
+            
+            // Restore Console Badge Status
+            const statusBadge = document.getElementById('webhookStatusBadge');
+            statusBadge.textContent = 'Idle';
+            statusBadge.className = 'payload-status-badge';
+            statusBadge.style.background = '';
+            statusBadge.style.color = '';
+            
+            showStep(1);
+            updateLiveJson();
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

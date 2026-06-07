@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">The Cosmo Packaging Social Avatar</title>
+  <desc id="desc">A premium olive TCP monogram box mark for The Cosmo Packaging social profiles.</desc>
+  <rect width="512" height="512" rx="96" fill="#fffaf5"/>
+  <rect x="96" y="96" width="320" height="320" rx="64" fill="#263820"/>
+  <path d="M156 194h200v154H156z" fill="none" stroke="#fffaf5" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M156 194l40-40h200l-40 40M356 194v154l40-40V154" fill="none" stroke="#d9c79f" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M196 154v40" stroke="#d9c79f" stroke-width="12" stroke-linecap="round"/>
+  <text x="256" y="295" text-anchor="middle" fill="#fffaf5" font-family="Outfit, Arial, sans-serif" font-size="76" font-weight="800" letter-spacing="6">TCP</text>
+  <path d="M350 152v230" stroke="#d9c79f" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+</svg>
