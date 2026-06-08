@@ -340,11 +340,10 @@ function initQuoteSummary() {
 
 /**
  * Google Analytics 4 initialization
- * Replace G-XXXXXXXXXX with your actual GA4 measurement ID
+ * Measurement ID: G-ZV2LTK2KZK
  */
 (function initGA4() {
-    const gaId = 'G-XXXXXXXXXX'; // ← Replace with your GA4 ID
-    if (!gaId || gaId.includes('XXXXX')) return; // Don't load if placeholder
+    const gaId = 'G-ZV2LTK2KZK';
     
     const script = document.createElement('script');
     script.async = true;
