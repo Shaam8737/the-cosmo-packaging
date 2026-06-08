@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import existing site CSS so Tailwind utilities can layer on top if needed. */
+@import "./luxury-style.css";

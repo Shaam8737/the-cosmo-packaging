@@ -1,0 +1,12 @@
+{
+  "name": "the-cosmo-packaging-tailwind",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:css": "npx tailwindcss -c tailwind.config.cjs -i ./css/tw-input.css -o ./css/tw-output.css --minify",
+    "watch:css": "npx tailwindcss -c tailwind.config.cjs -i ./css/tw-input.css -o ./css/tw-output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.0"
+  }
+}

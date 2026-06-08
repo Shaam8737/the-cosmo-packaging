@@ -1,8 +1,9 @@
 /**
  * The Cosmo Packaging - Core Javascript Framework
- * Manages 3D box transformations, mouse vectors, and layout triggers.
+ * Manages hamburger menu, 3D box transformations, mouse vectors, layout triggers, and GA4.
  */
 document.addEventListener('DOMContentLoaded', () => {
+    initHamburgerMenu();
     initHeaderScroll();
     init3DParallax();
     initHeroPassiveTilt();
@@ -10,6 +11,42 @@ document.addEventListener('DOMContentLoaded', () => {
     initViewerSizeCards();
     initQuoteSummary();
 });
+
+/**
+ * Mobile hamburger menu (slide from left)
+ */
+function initHamburgerMenu() {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const overlay = document.getElementById('mobileOverlay');
+    const panel = document.getElementById('mobilePanel');
+
+    if (!hamburger || !overlay || !panel) return;
+
+    function toggleMenu(open) {
+        const isOpen = open !== undefined ? open : !panel.classList.contains('active');
+        hamburger.classList.toggle('active', isOpen);
+        panel.classList.toggle('active', isOpen);
+        overlay.classList.toggle('active', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu());
+    overlay.addEventListener('click', () => toggleMenu(false));
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && panel.classList.contains('active')) {
+            toggleMenu(false);
+        }
+    });
+
+    // Close on window resize to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900 && panel.classList.contains('active')) {
+            toggleMenu(false);
+        }
+    });
+}
 
 /**
  * Adds thin shadow / padding compression to header on scroll
@@ -35,23 +72,21 @@ function init3DParallax() {
         
         let isDragging = false;
         let previousMousePosition = { x: 0, y: 0 };
-        let rotation = { x: -20, y: 35 }; // Defaults
+        let rotation = { x: -20, y: 35 };
         
-        // Grab mouse rotation interaction
         container.addEventListener('mousedown', (e) => {
             if (box.classList.contains('flat-layout')) return;
             isDragging = true;
             previousMousePosition = { x: e.clientX, y: e.clientY };
-            box.style.animation = 'none'; // Temporarily pause floating
+            box.style.animation = 'none';
         });
         
         window.addEventListener('mouseup', () => {
             if (isDragging) {
                 isDragging = false;
-                // Gracefully restart continuous floating after a delay
                 setTimeout(() => {
                     if (!isDragging && !box.classList.contains('flat-layout')) {
-                        box.style.animation = ''; // Re-enable CSS animation
+                        box.style.animation = '';
                     }
                 }, 2000);
             }
@@ -65,18 +100,14 @@ function init3DParallax() {
                 y: e.clientY - previousMousePosition.y
             };
             
-            // Adjust angles
             rotation.y += deltaMove.x * 0.4;
             rotation.x -= deltaMove.y * 0.4;
-            
-            // Limit polar rotation to prevent gimbal lock
             rotation.x = Math.max(-60, Math.min(60, rotation.x));
             
             box.style.transform = `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
             previousMousePosition = { x: e.clientX, y: e.clientY };
         });
         
-        // Touch events for mobile responsiveness
         container.addEventListener('touchstart', (e) => {
             if (box.classList.contains('flat-layout')) return;
             isDragging = true;
@@ -115,8 +146,6 @@ function init3DParallax() {
 
 /**
  * API to unfold the 3D CSS container flat (for the Dual-Tab viewer dieline)
- * @param {string} boxId - DOM selector for targeted container
- * @param {boolean} makeFlat - fold flat if true, restore 3D if false
  */
 function toggleBoxFolding(boxId, makeFlat) {
     const box = document.querySelector(boxId);
@@ -308,3 +337,22 @@ function initQuoteSummary() {
 
     update();
 }
+
+/**
+ * Google Analytics 4 initialization
+ * Replace G-XXXXXXXXXX with your actual GA4 measurement ID
+ */
+(function initGA4() {
+    const gaId = 'G-XXXXXXXXXX'; // ← Replace with your GA4 ID
+    if (!gaId || gaId.includes('XXXXX')) return; // Don't load if placeholder
+    
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', gaId);
+})();
