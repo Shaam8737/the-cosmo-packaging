@@ -5,7 +5,7 @@
 const CosmoConfig = {
     // Current free automation backend: Google Apps Script Web App. Replace only with your deployed Web App URL.
     provider: 'google_apps_script',
-    appsScriptWebhookUrl: 'https://script.google.com/macros/s/AKfycbwKXQPvq4sOApNcqp5m1iQ8HbgaYVzcUPCMmR4rMr6hoKb26oksJ3EkBnYvcT8mw6O1PQ/exec',
+    appsScriptWebhookUrl: 'https://script.google.com/macros/s/AKfycbxfWmLPD9oC4gGqULV3X6iLnjmaCwNg54dmEbAgTbRMWf4qQJ-YkMt2AjsXSO3EKLWS_g/exec',
 
     // Future/manual payment configuration. Keep disabled until Stripe Payment Links are approved and tested.
     stripe: {
