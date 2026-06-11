@@ -7,12 +7,12 @@ const CosmoConfig = {
     provider: 'google_apps_script',
     appsScriptWebhookUrl: 'https://script.google.com/macros/s/AKfycbwKXQPvq4sOApNcqp5m1iQ8HbgaYVzcUPCMmR4rMr6hoKb26oksJ3EkBnYvcT8mw6O1PQ/exec',
 
-    // Stripe checkout configuration for $35 physical sample kits
+    // Future/manual payment configuration. Keep disabled until Stripe Payment Links are approved and tested.
     stripe: {
         publishableKey: 'STRIPE_PUBLISHABLE_KEY_HERE',
         priceId: 'STRIPE_PRICE_ID_HERE',
         amount: 35,
-        enabled: true
+        enabled: false
     },
 
     // Optional/future n8n instance webhook target.
