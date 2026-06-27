@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396">
+    <rect width="1584" height="396" fill="#151A38"/>
+    
+    <path d="M1040 -70L1584 270M1170 -70L1584 190M1310 -70L1584 95" stroke="#F2F2F2" stroke-opacity="0.18" stroke-width="2"/>
+    <rect x="1035" y="72" width="400" height="252" rx="28" fill="none" stroke="#F2F2F2" stroke-opacity="0.65" stroke-width="2"/>
+    <rect x="1092" y="127" width="286" height="142" rx="16" fill="none" stroke="#F2F2F2" stroke-width="3"/>
+    
+    <g transform="translate(96 116) scale(0.78)">
+      <text x="0" y="0" fill="#F2F2F2" font-family="Georgia, 'Times New Roman', serif" font-size="58" letter-spacing="7">COSMO</text>
+      <circle cx="251" cy="-13" r="5.5" fill="#F2F2F2"/>
+    </g>
+    <text x="96" y="218" fill="#F2F2F2" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" letter-spacing="0" text-anchor="start"><tspan x="96" dy="0">Custom beauty packaging for US brands</tspan></text>
+    <text x="96" y="308" fill="#F2F2F2" fill-opacity="0.75" font-family="Arial" font-size="22" letter-spacing="2">SKINCARE  •  COSMETICS  •  PR KITS  •  MAILERS  •  RIGID BOXES</text>
+    <text x="96" y="352" fill="#F2F2F2" font-family="Arial" font-size="22" letter-spacing="3">THECOSMOPACKAGING.COM</text>
+  
+  </svg>
