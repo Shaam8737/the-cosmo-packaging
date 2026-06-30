@@ -1,0 +1,272 @@
+/* ==========================================================================
+   THE COSMO PACKAGING — MORO-INSPIRED EDITORIAL REDESIGN (overrides)
+   Loaded AFTER luxury-style.css. Bold sans display type, big hero,
+   stats band, generous whitespace. Reversible: remove this <link> to revert.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --font-display: 'Space Grotesk', 'Outfit', sans-serif;
+}
+
+/* --- Editorial display typography --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--sage-deeper);
+}
+
+.serif-italics {
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 600;
+    color: var(--gold-accent);
+}
+
+/* ==========================================================================
+   HERO — large typographic statement
+   ========================================================================== */
+.hero-section {
+    min-height: 92vh;
+    align-items: center;
+    padding: 10rem 6% 5rem;
+    gap: 3rem;
+    background:
+        linear-gradient(95deg, rgba(246, 244, 240, 0.99) 0%, rgba(246, 244, 240, 0.92) 42%, rgba(246, 244, 240, 0.45) 72%, rgba(246, 244, 240, 0.12) 100%),
+        var(--img-hero) 70% 45% / cover no-repeat;
+}
+
+.hero-section::before { display: none; }
+.hero-section::after { display: none; }
+
+.hero-content {
+    max-width: 920px;
+    flex: 1 1 100%;
+}
+
+.hero-tag {
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gold-accent) !important;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    position: relative;
+    padding-left: 3.2rem;
+}
+
+.hero-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2.4rem;
+    height: 1px;
+    background: var(--gold-accent);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 9vw, 8rem);
+    line-height: 0.9;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    color: var(--sage-deeper);
+    margin-bottom: 2rem;
+}
+
+.hero-desc {
+    font-family: var(--font-sans);
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin-bottom: 2.6rem;
+}
+
+/* Hide the right-side photo panel — hero is now type-led over the bg image */
+.hero-visual { display: none; }
+
+/* Proof row → cleaner, underline-style editorial chips */
+.hero-proof-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    max-width: 760px;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-accent);
+}
+
+.hero-proof-row span {
+    background: transparent;
+    border: 0;
+    border-right: 1px solid var(--border-light);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1.4rem 1.4rem 1.4rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.hero-proof-row span:last-child { border-right: 0; }
+
+.hero-proof-row strong {
+    font-family: var(--font-display);
+    color: var(--sage-deeper);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    margin-bottom: 0.35rem;
+}
+
+/* ==========================================================================
+   STATS BAND — Moro signature big-number row
+   ========================================================================== */
+.stats-band {
+    background: var(--sage-deeper);
+    padding: 4.5rem 6%;
+    color: var(--text-light);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-right: 1.5rem;
+    border-left: 1px solid rgba(201, 169, 110, 0.35);
+    padding-left: 1.6rem;
+}
+
+.stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--gold-light);
+}
+
+.stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.72);
+    letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   SECTION HEADERS — bigger, bolder editorial
+   ========================================================================== */
+.section-tag {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-accent);
+}
+
+.section-header h2,
+.section-header.center h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    margin-top: 1rem;
+}
+
+.section-padding {
+    padding: 9rem 6%;
+}
+
+/* ==========================================================================
+   GRID / CATALOG CARDS — flatter, editorial
+   ========================================================================== */
+.grid-card {
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.grid-card-tag {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-accent);
+    font-size: 0.72rem;
+}
+
+.grid-card-title,
+.catalog-card__body h3,
+.sample-copy h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.catalog-card {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   BUTTONS — squared, confident
+   ========================================================================== */
+.btn-luxury,
+.btn-luxury-outline {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    text-transform: none;
+}
+
+/* ==========================================================================
+   TICKER — tighter editorial rhythm
+   ========================================================================== */
+.ticker-item span {
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 1.5rem;
+    }
+    .hero-section {
+        padding: 8rem 6% 4rem;
+        min-height: auto;
+    }
+    .hero-title {
+        font-size: clamp(2.8rem, 13vw, 4.5rem);
+    }
+}
+
+@media (max-width: 560px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .hero-proof-row {
+        grid-template-columns: 1fr;
+    }
+    .hero-proof-row span {
+        border-right: 0;
+        border-bottom: 1px solid var(--border-light);
+        padding: 1rem 0;
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "cosmo-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "cosmo-next", "run", "dev", "--", "-p", "3000"],
+      "port": 3000
+    }
+  ]
+}

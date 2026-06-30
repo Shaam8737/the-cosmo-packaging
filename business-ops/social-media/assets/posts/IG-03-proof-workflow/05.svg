@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+    <rect width="1080" height="1350" fill="#F2F2F2"/>
+    
+    
+    <g transform="translate(72 100) scale(0.58)">
+      <text x="0" y="0" fill="#151A38" font-family="Georgia, 'Times New Roman', serif" font-size="58" letter-spacing="7">COSMO</text>
+      <circle cx="251" cy="-13" r="5.5" fill="#C8A45C"/>
+    </g>
+    <text x="1008" y="100" text-anchor="end" fill="#656C83" font-family="Arial" font-size="22" letter-spacing="4">PROOF WORKFLOW</text>
+    <circle cx="820" cy="395" r="180" fill="#E3E8F4"/><g transform="translate(710 280) scale(1.05)" fill="none" stroke="#151A38" stroke-width="5" stroke-linejoin="round"><path d="M32 8h120l48 48v150H32z"/><path d="M152 8v48h48"/><path d="M68 104l28 28 62-70"/><path d="M68 166h92"/></g>
+    <text x="72" y="360" fill="#6199F7" font-family="Georgia" font-size="108">04</text>
+    <text x="72" y="600" fill="#151A38" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="0" text-anchor="start"><tspan x="72" dy="0">Proof</tspan></text>
+    <text x="72" y="835" fill="#444B63" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" letter-spacing="0" text-anchor="start"><tspan x="72" dy="0">Review copy, colors, alignment, finish</tspan><tspan x="72" dy="47.599999999999994">placement, and required information.</tspan></text>
+    
+    <line x1="72" y1="1264" x2="1008" y2="1264" stroke="#D5D9E4" stroke-width="2"/>
+    <text x="72" y="1310" fill="#6E7488" font-family="Arial" font-size="22" letter-spacing="3">THECOSMOPACKAGING.COM</text>
+    <text x="1008" y="1310" text-anchor="end" fill="#151A38" font-family="Arial" font-size="24">05 / 07</text>
+  
+  </svg>

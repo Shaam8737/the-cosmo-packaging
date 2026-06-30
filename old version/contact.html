@@ -23,6 +23,31 @@
         .contact-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem; }
         .contact-meta { font-family: var(--font-ui); font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.35rem; }
         .contact-form-alert { display:none; color: var(--accent-red); font-size: 0.85rem; margin-bottom: 1rem; }
+        .quick-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.9rem;
+            margin-top: 2rem;
+        }
+        .quick-contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 128px;
+            padding: 1.2rem;
+            border: 1px solid rgba(17, 16, 14, 0.1);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.34);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+        .quick-contact:hover { transform: translateY(-4px); background: #8ec7f7; }
+        .quick-contact strong { font-size: 1.05rem; }
+        .quick-contact span { color: var(--text-secondary); font-size: 0.86rem; line-height: 1.45; margin-top: 0.65rem; }
+        @media (max-width: 768px) {
+            .quick-contact-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body data-page="contact">
@@ -36,6 +61,15 @@
             <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; max-width: 640px;">
                 Factory-direct custom packaging for cosmetic, skincare, and beauty brands. Submit specifications through the quote form for the fastest response, or email us directly for artwork and sample kit questions.
             </p>
+
+            <div class="quick-contact-grid" aria-label="Direct contact options">
+                <a class="quick-contact" href="quote-request.html"><strong>Quote form</strong><span>Best for pricing, box style, quantity, material, finish, and delivery route.</span></a>
+                <a class="quick-contact" href="https://wa.me/923038737413?text=Hi%20The%20Cosmo%20Packaging%2C%20I%20need%20help%20with%20custom%20packaging." target="_blank" rel="noopener"><strong>WhatsApp</strong><span>Open a direct chat for quick packaging questions.</span></a>
+                <a class="quick-contact" href="mailto:quotes@thecosmopackaging.com"><strong>Email quotes</strong><span>Send specs, artwork, dielines, and reference packaging.</span></a>
+                <a class="quick-contact" href="mailto:support@thecosmopackaging.com"><strong>Support</strong><span>Use for existing quote, sample, artwork, or order questions.</span></a>
+                <a class="quick-contact" href="sample-kit-checkout.html"><strong>Sample kit</strong><span>Request material and finishing references before production.</span></a>
+                <a class="quick-contact" href="#contact-form"><strong>Contact form</strong><span>Leave your message inside the website and we will reply.</span></a>
+            </div>
 
             <div class="contact-grid">
                 <div class="luxury-card contact-card">
@@ -71,7 +105,7 @@
                     </p>
                 </div>
 
-                <div class="luxury-card contact-card" style="grid-column: 1 / -1;">
+                <div class="luxury-card contact-card" id="contact-form" style="grid-column: 1 / -1;">
                     <div class="contact-meta">General inquiry</div>
                     <h3 class="serif-italics">Send a Message</h3>
                     <form id="contactLeadForm" novalidate onsubmit="handleContactLead(event)">
@@ -208,4 +242,3 @@
     </script>
 </body>
 </html>
-

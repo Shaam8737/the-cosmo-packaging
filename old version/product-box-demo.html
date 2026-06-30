@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mailer Box — The Cosmo Packaging</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F6F4F0;
+    --navy: #2C3E6B;
+    --gold: #C9A96E;
+    --dark: #1a1420;
+    --card: #ECEAE5;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: auto; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Georgia', serif;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .intro-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .intro h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 1.1rem;
+    color: #6b6458;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.5;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-hint span {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-hint svg { width: 20px; height: 20px; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ── PINNED STAGE ── */
+  .pin-wrap {
+    position: relative;
+  }
+
+  .stage {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  /* ── BOX PANEL (left) ── */
+  .box-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+  }
+
+  /* ── 3D BOX ── */
+  .scene {
+    width: 280px;
+    height: 280px;
+    perspective: 800px;
+    position: relative;
+  }
+
+  .box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(18deg) rotateY(-28deg);
+  }
+
+  /* Box face shared */
+  .face {
+    position: absolute;
+    border: 1.5px solid rgba(44, 62, 107, 0.18);
+  }
+
+  /* FRONT face */
+  .face-front {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #f0ede8 0%, #e8e4de 100%);
+    transform: translateZ(100px);
+    left: 0; top: 0;
+  }
+
+  /* BACK face */
+  .face-back {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #dbd7d0 0%, #cdc9c1 100%);
+    transform: translateZ(-100px) rotateY(180deg);
+    left: 0; top: 0;
+  }
+
+  /* LEFT face */
+  .face-left {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #c8c4bc 0%, #bbb6ad 100%);
+    transform: rotateY(-90deg) translateZ(100px);
+    left: 0; top: 0;
+  }
+
+  /* RIGHT face */
+  .face-right {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #d4d0c8 0%, #c8c4bc 100%);
+    transform: rotateY(90deg) translateZ(100px);
+    left: 0; top: 0;
+  }
+
+  /* BOTTOM face */
+  .face-bottom {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #bbb6ad 0%, #afa9a0 100%);
+    transform: rotateX(-90deg) translateZ(100px);
+    left: 0; top: 0;
+  }
+
+  /* TOP / LID face */
+  .face-top {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #f0ede8 0%, #e0dbd4 100%);
+    transform-origin: top center;
+    transform: rotateX(90deg) translateZ(-100px);
+    left: 0; top: 0;
+    transition: none;
+  }
+
+  /* Box logo on front */
+  .box-logo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .box-logo-name {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+    opacity: 0.7;
+  }
+
+  .box-logo-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.8;
+  }
+
+  .box-logo-sub {
+    font-family: 'Georgia', serif;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.8;
+  }
+
+  /* Hotspot dots on box */
+  .hotspot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--white);
+    opacity: 0;
+    transform: scale(0);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .hotspot::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* Connector line from hotspot */
+  .hotspot-line {
+    position: absolute;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0;
+    transform-origin: left center;
+    z-index: 9;
+    pointer-events: none;
+  }
+
+  /* ── INFO PANEL (right) ── */
+  .info-panel {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 5rem 4rem 3rem;
+    position: relative;
+  }
+
+  .feature-card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 5rem 4rem 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+  }
+
+  .feature-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .feature-index {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-title {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .feature-desc {
+    font-size: 1rem;
+    color: #6b6458;
+    line-height: 1.75;
+    max-width: 400px;
+    margin-bottom: 2rem;
+  }
+
+  .feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--gold);
+    border-radius: 2rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Progress dots */
+  .progress-dots {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .progress-dots.visible { opacity: 1; }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.25;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .dot.active {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  /* ── OUTRO ── */
+  .outro {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem;
+    background: var(--navy);
+    color: var(--bg);
+  }
+
+  .outro-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .outro h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    max-width: 640px;
+  }
+
+  .outro p {
+    font-size: 1.05rem;
+    color: rgba(246, 244, 240, 0.65);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 2.2rem;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .cta-btn:hover {
+    background: #d4b57d;
+    transform: translateY(-2px);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .stage {
+      grid-template-columns: 1fr;
+      grid-template-rows: 55vh 45vh;
+    }
+    .box-panel { height: 55vh; }
+    .info-panel, .feature-card {
+      padding: 2rem 1.5rem;
+    }
+    .scene { width: 200px; height: 200px; }
+    .face-front, .face-back, .face-left, .face-right, .face-bottom, .face-top {
+      width: 140px; height: 140px;
+    }
+    .face-front  { transform: translateZ(70px); }
+    .face-back   { transform: translateZ(-70px) rotateY(180deg); }
+    .face-left   { transform: rotateY(-90deg) translateZ(70px); }
+    .face-right  { transform: rotateY(90deg) translateZ(70px); }
+    .face-bottom { transform: rotateX(-90deg) translateZ(70px); }
+    .face-top    { transform: rotateX(90deg) translateZ(-70px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-label">Product Spotlight</div>
+  <h1>Custom<br>Mailer Box</h1>
+  <p>Every detail engineered for impact — from the first touch to the unboxing moment your customers share.</p>
+  <div class="scroll-hint">
+    <span>Scroll to explore</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PINNED STAGE -->
+<div class="pin-wrap" id="pinWrap">
+  <div class="stage" id="stage">
+
+    <!-- LEFT: 3D Box -->
+    <div class="box-panel" id="boxPanel">
+      <div class="scene">
+        <div class="box" id="box3d">
+          <!-- Faces -->
+          <div class="face face-front">
+            <div class="box-logo">
+              <div class="box-logo-name">The Cosmo</div>
+              <div class="box-logo-line"></div>
+              <div class="box-logo-sub">Packaging</div>
+            </div>
+          </div>
+          <div class="face face-back"></div>
+          <div class="face face-left"></div>
+          <div class="face face-right"></div>
+          <div class="face face-bottom"></div>
+          <div class="face face-top" id="lid"></div>
+
+          <!-- Hotspots positioned on front face surface -->
+          <div class="hotspot" id="hs1" style="left:60px; top:40px;"></div>
+          <div class="hotspot" id="hs2" style="left:150px; top:60px;"></div>
+          <div class="hotspot" id="hs3" style="left:40px; top:130px;"></div>
+          <div class="hotspot" id="hs4" style="left:140px; top:150px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Info cards -->
+    <div class="info-panel" id="infoPanel">
+
+      <!-- Card 0: Opening card -->
+      <div class="feature-card" id="card0">
+        <div class="feature-index">Opening</div>
+        <div class="feature-title">Designed to<br>impress</div>
+        <div class="feature-desc">Scroll through each quality that makes this mailer box a premium brand statement — not just a shipping container.</div>
+        <div class="feature-tag">✦ 5 Craft Features</div>
+      </div>
+
+      <!-- Card 1 -->
+      <div class="feature-card" id="card1">
+        <div class="feature-index">01 / 04 — Structure</div>
+        <div class="feature-title">Double-Wall<br>Construction</div>
+        <div class="feature-desc">Two layers of E-flute corrugated board provide superior crush resistance. Your product arrives protected — no matter how far it travels.</div>
+        <div class="feature-tag">✦ 5mm Wall Thickness</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card" id="card2">
+        <div class="feature-index">02 / 04 — Finish</div>
+        <div class="feature-title">Soft-Touch<br>Matte Coating</div>
+        <div class="feature-desc">A velvety matte lamination that feels as premium as it looks. Fingerprint-resistant surface keeps the box pristine from warehouse to doorstep.</div>
+        <div class="feature-tag">✦ Anti-Scratch Laminate</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card" id="card3">
+        <div class="feature-index">03 / 04 — Print</div>
+        <div class="feature-title">4-Color CMYK<br>Litho Print</div>
+        <div class="feature-desc">Full offset lithographic printing on the outer shell delivers sharp gradients, rich blacks, and true brand colors across every unit in your run.</div>
+        <div class="feature-tag">✦ 300 DPI Precision</div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card" id="card4">
+        <div class="feature-index">04 / 04 — Brand</div>
+        <div class="feature-title">Gold Foil<br>Stamping</div>
+        <div class="feature-desc">Hot-foil stamping in 24K gold adds a tactile luxury element. Logo, icons, or brand marks — elevated to a level that justifies premium pricing.</div>
+        <div class="feature-tag">✦ Custom Die Available</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Progress dots -->
+<div class="progress-dots" id="progressDots">
+  <div class="dot active" data-i="0"></div>
+  <div class="dot" data-i="1"></div>
+  <div class="dot" data-i="2"></div>
+  <div class="dot" data-i="3"></div>
+  <div class="dot" data-i="4"></div>
+</div>
+
+<!-- OUTRO -->
+<section class="outro">
+  <div class="outro-label">Ready to Order?</div>
+  <h2>Your brand deserves packaging that performs</h2>
+  <p>Custom mailer boxes from 50 units. Full colour print, foil options, and fast turnaround for beauty and skincare brands.</p>
+  <a href="#" class="cta-btn">Request a Free Sample ↗</a>
+</section>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const totalSteps = 5; // 0=open, 1-4=features
+  const scrollHeight = totalSteps * window.innerHeight;
+
+  // Add spacer so pin has room
+  const pinWrap = document.getElementById('pinWrap');
+  pinWrap.style.height = scrollHeight + 'px';
+
+  const stage        = document.getElementById('stage');
+  const box          = document.getElementById('box3d');
+  const lid          = document.getElementById('lid');
+  const cards        = [0,1,2,3,4].map(i => document.getElementById('card'+i));
+  const hotspots     = [1,2,3,4].map(i => document.getElementById('hs'+i));
+  const dots         = document.querySelectorAll('.dot');
+  const progressDots = document.getElementById('progressDots');
+
+  let currentStep = -1;
+
+  // ── PIN the stage ──
+  ScrollTrigger.create({
+    trigger: pinWrap,
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: stage,
+    pinSpacing: false,
+    onEnter:  () => progressDots.classList.add('visible'),
+    onLeave:  () => progressDots.classList.remove('visible'),
+    onEnterBack:  () => progressDots.classList.add('visible'),
+    onLeaveBack:  () => progressDots.classList.remove('visible'),
+  });
+
+  // ── Main scrub timeline ──
+  const tl = gsap.timeline({ paused: true });
+
+  // Step 0 → 1: Lid opens
+  // lid starts at rotateX(90deg) which = closed flat top; we rotate to -80deg = open
+  tl.to(lid, {
+    rotateX: -80,
+    duration: 1,
+    ease: 'power2.inOut',
+    transformOrigin: 'top center',
+  }, 0);
+
+  // Subtle box rotate to reveal inside
+  tl.to(box, {
+    rotateX: 30,
+    duration: 1,
+    ease: 'power2.inOut',
+  }, 0);
+
+  // Steps 1-4: show hotspots one by one (each takes 1 unit in tl)
+  hotspots.forEach((hs, i) => {
+    const start = 1 + i * 0.8;
+    tl.to(hs, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(2)' }, start);
+  });
+
+  // Scrub the timeline with scroll
+  ScrollTrigger.create({
+    trigger: pinWrap,
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: 1.2,
+    onUpdate: (self) => {
+      const progress = self.progress; // 0 to 1
+      const step = Math.floor(progress * totalSteps);
+      const clampedStep = Math.min(step, totalSteps - 1);
+
+      // Drive the GSAP timeline
+      tl.progress(progress);
+
+      // Switch active card
+      if (clampedStep !== currentStep) {
+        currentStep = clampedStep;
+
+        cards.forEach((c, i) => {
+          if (i === clampedStep) {
+            gsap.to(c, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
+          } else {
+            gsap.to(c, { opacity: 0, y: i < clampedStep ? -20 : 30, duration: 0.35, ease: 'power2.in' });
+          }
+        });
+
+        // Update dots
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === clampedStep);
+        });
+      }
+    }
+  });
+
+  // Show first card immediately
+  gsap.set(cards[0], { opacity: 1, y: 0 });
+</script>
+</body>
+</html>

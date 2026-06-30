@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+    <rect width="1080" height="1350" fill="#151A38"/>
+    
+    
+    <g transform="translate(72 105) scale(0.66)">
+      <text x="0" y="0" fill="#F2F2F2" font-family="Georgia, 'Times New Roman', serif" font-size="58" letter-spacing="7">COSMO</text>
+      <circle cx="251" cy="-13" r="5.5" fill="#C8A45C"/>
+    </g>
+    <path transform="translate(740 230) scale(1.28)" d="M26 12h112v160l-56-38-56 38z" fill="none" stroke="#6199F7" stroke-width="6" stroke-linejoin="round"/>
+    <text x="72" y="455" fill="#F2F2F2" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" letter-spacing="0" text-anchor="start"><tspan x="72" dy="0">A clearer brief</tspan><tspan x="72" dy="89.44">creates a clearer</tspan><tspan x="72" dy="89.44">conversation.</tspan></text>
+    <text x="72" y="805" fill="#AEB5CB" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" letter-spacing="0" text-anchor="start"><tspan x="72" dy="0">Save this checklist for your next</tspan><tspan x="72" dy="48.28">beauty-product launch, then request a quote</tspan><tspan x="72" dy="48.28">when you are ready.</tspan></text>
+    <rect x="72" y="1050" width="520" height="94" rx="47" fill="#F2F2F2"/>
+    <text x="332" y="1108" text-anchor="middle" fill="#151A38" font-family="Arial" font-size="28" font-weight="700">SAVE THIS CHECKLIST</text>
+    
+    <line x1="72" y1="1264" x2="1008" y2="1264" stroke="#33395D" stroke-width="2"/>
+    <text x="72" y="1310" fill="#AEB5CB" font-family="Arial" font-size="22" letter-spacing="3">THECOSMOPACKAGING.COM</text>
+    <text x="1008" y="1310" text-anchor="end" fill="#F2F2F2" font-family="Arial" font-size="24">07 / 07</text>
+  
+  </svg>

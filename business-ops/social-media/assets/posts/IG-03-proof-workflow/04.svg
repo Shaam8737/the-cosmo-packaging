@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+    <rect width="1080" height="1350" fill="#F2F2F2"/>
+    
+    
+    <g transform="translate(72 100) scale(0.58)">
+      <text x="0" y="0" fill="#151A38" font-family="Georgia, 'Times New Roman', serif" font-size="58" letter-spacing="7">COSMO</text>
+      <circle cx="251" cy="-13" r="5.5" fill="#C8A45C"/>
+    </g>
+    <text x="1008" y="100" text-anchor="end" fill="#656C83" font-family="Arial" font-size="22" letter-spacing="4">PROOF WORKFLOW</text>
+    
+    <g transform="translate(615 215)" fill="none" stroke="#151A38" stroke-width="4" stroke-linejoin="round">
+      <rect x="110" y="120" width="175" height="210" rx="4"/>
+      <rect x="110" y="0" width="175" height="120" rx="4"/>
+      <rect x="110" y="330" width="175" height="120" rx="4"/>
+      <rect x="0" y="120" width="110" height="210" rx="4"/>
+      <rect x="285" y="120" width="110" height="210" rx="4"/>
+      <path d="M0 120L55 72l55 48M395 120l55-48v258l-55-40M110 0L66-42h263L285 0M110 450l-44 42h263l-44-42" stroke="#6199F7" stroke-dasharray="12 10"/>
+      <path d="M110 120h175M110 330h175M110 120v210M285 120v210" stroke="#C8A45C" stroke-dasharray="8 8"/>
+      <circle cx="197" cy="225" r="45" stroke="#6199F7"/>
+      <text x="197" y="236" text-anchor="middle" fill="#151A38" stroke="none" font-family="Georgia" font-size="32">C</text>
+    </g>
+    <text x="72" y="360" fill="#6199F7" font-family="Georgia" font-size="108">03</text>
+    <text x="72" y="600" fill="#151A38" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="0" text-anchor="start"><tspan x="72" dy="0">Dieline</tspan></text>
+    <text x="72" y="835" fill="#444B63" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" letter-spacing="0" text-anchor="start"><tspan x="72" dy="0">Place artwork against the correct structural</tspan><tspan x="72" dy="47.599999999999994">template and respect folds, cuts, and safe</tspan><tspan x="72" dy="47.599999999999994">areas.</tspan></text>
+    
+    <line x1="72" y1="1264" x2="1008" y2="1264" stroke="#D5D9E4" stroke-width="2"/>
+    <text x="72" y="1310" fill="#6E7488" font-family="Arial" font-size="22" letter-spacing="3">THECOSMOPACKAGING.COM</text>
+    <text x="1008" y="1310" text-anchor="end" fill="#151A38" font-family="Arial" font-size="24">04 / 07</text>
+  
+  </svg>

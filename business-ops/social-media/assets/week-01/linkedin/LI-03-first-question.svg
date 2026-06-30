@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#151A38"/>
+  <text x="78" y="116" fill="#F2F2F2" font-family="Georgia,serif" font-size="48" letter-spacing="8">COSMO</text>
+  <circle cx="260" cy="103" r="6" fill="#C8A45C"/>
+  <text x="1122" y="110" fill="#BEC5D9" text-anchor="end" font-family="Arial" font-size="22" letter-spacing="4">PACKAGING DECISIONS</text>
+  <line x1="78" y1="220" x2="1122" y2="220" stroke="#343B63" stroke-width="2"/>
+  <text x="78" y="420" fill="#6199F7" font-family="Georgia" font-size="92">01</text>
+  <text x="78" y="550" fill="#F2F2F2" font-family="Arial" font-size="84" font-weight="800" letter-spacing="-3">
+    <tspan x="78">The first packaging</tspan>
+    <tspan x="78" dy="92">question is not:</tspan>
+  </text>
+  <rect x="78" y="780" width="1044" height="130" rx="24" fill="#F2F2F2"/>
+  <text x="600" y="862" fill="#151A38" text-anchor="middle" font-family="Arial" font-size="48" font-weight="800">“Which finish should we use?”</text>
+  <text x="78" y="1015" fill="#BEC5D9" font-family="Arial" font-size="31">
+    <tspan x="78">Start with the product, buyer, journey, and structure.</tspan>
+    <tspan x="78" dy="46">Then choose finishes that reinforce the decision.</tspan>
+  </text>
+  <text x="78" y="1132" fill="#F2F2F2" font-family="Arial" font-size="23" letter-spacing="3">THECOSMOPACKAGING.COM</text>
+</svg>
